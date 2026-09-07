@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#c0c1ff","on-tertiary-fixed":"#410004","on-surface":"#dfe2ed","on-tertiary-container":"#5c0008","primary-fixed-dim":"#c0c1ff","inverse-primary":"#494bd6","on-tertiary-fixed-variant":"#930013","background":"#0f131b","surface-container-highest":"#31353d","outline-variant":"#464554","primary-container":"#8083ff","surface-container-low":"#181c23","on-secondary-fixed":"#002113","primary-fixed":"#e1e0ff","surface-container":"#1c2027","surface":"#0f131b","error-container":"#93000a","on-secondary":"#003824","on-secondary-container":"#00311f","secondary-fixed":"#6ffbbe","on-error":"#690005","tertiary-fixed-dim":"#ffb3ad","on-primary":"#1000a9","error":"#ffb4ab","on-primary-fixed":"#07006c","on-background":"#dfe2ed","on-primary-container":"#0d0096","on-surface-variant":"#c7c4d7","surface-container-high":"#262a32","inverse-surface":"#dfe2ed","primary":"#c0c1ff","inverse-on-surface":"#2d3038","tertiary-container":"#ff5451","on-secondary-fixed-variant":"#005236","surface-container-lowest":"#0a0e15","secondary-container":"#00a572","on-tertiary":"#68000a","tertiary":"#ffb3ad","tertiary-fixed":"#ffdad7","secondary-fixed-dim":"#4edea3","on-error-container":"#ffdad6","surface-bright":"#353941","on-primary-fixed-variant":"#2f2ebe","outline":"#908fa0","surface-variant":"#31353d","surface-dim":"#0f131b","secondary":"#4edea3"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-edge":"12px","space-2xl":"32px","space-xs":"4px","gutter-terminal":"8px","space-base":"16px","space-lg":"20px","space-md":"12px","space-2xs":"2px","space-sm":"8px","space-xl":"24px"},fontFamily:{"label-numeric-lg":["JetBrains Mono"],"headline-xl":["Geist"],"label-numeric-md":["JetBrains Mono"],"headline-md":["Geist"],"body-md":["Geist"],"headline-sm":["Geist"],"body-sm":["Geist"],"body-lg":["Geist"],"label-numeric-sm":["JetBrains Mono"],"label-caps":["Geist"],"headline-lg":["Geist"]},fontSize:{"label-numeric-lg":["18px",{lineHeight:"22px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-xl":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"label-numeric-md":["13px",{lineHeight:"16px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-md":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-numeric-sm":["11px",{lineHeight:"14px",letterSpacing:"0em",fontWeight:"400"}],"label-caps":["10px",{lineHeight:"12px",letterSpacing:"0.08em",fontWeight:"600"}],"headline-lg":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 h-14 z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant/30 flex items-center justify-between px-margin-edge select-none"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded bg-primary-container/20 border border-primary/40 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-base">deployed_code</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-on-surface">AlphaTrade</span><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary">AI</span></div></div><span class="px-space-xs py-space-2xs bg-surface-container-high rounded font-label-caps text-label-caps uppercase text-outline tracking-wider border border-outline-variant/40">INSTITUTIONAL v4.2</span></div><div class="h-4 w-px bg-outline-variant/40 hidden xl:block"></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded border border-outline-variant/20"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span><span class="font-label-caps text-label-caps uppercase text-outline">REGIME:</span><span class="font-label-numeric-sm text-label-numeric-sm text-tertiary">High Volatility Expansion</span></div><div class="h-4 w-px bg-outline-variant/40 hidden 2xl:block"></div><div class="hidden 2xl:flex items-center gap-space-xs text-outline font-label-numeric-sm text-label-numeric-sm"><span class="material-symbols-outlined text-sm text-outline">bolt</span><span>Execution:</span><span class="text-secondary font-medium">4.8ms</span><span class="text-outline-variant">|</span><span class="text-on-surface-variant">Binance &amp; Bybit L3 Connected</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-secondary/10 border border-secondary/30 rounded"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider">AUTONOMOUS ACTIVE</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-low rounded border border-outline-variant/20 text-outline"><span class="material-symbols-outlined text-sm text-primary">lock</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">AES-256 GCM</span></div><button class="flex items-center gap-space-xs px-space-sm py-1.5 bg-error-container/20 hover:bg-error-container/40 border border-error/50 hover:border-error text-error rounded transition-colors duration-150" type="button"><span class="material-symbols-outlined text-sm">gpp_bad</span><span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">EMERGENCY STOP</span></button><div class="h-5 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col items-end text-right"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Alpha-01</span><span class="font-label-caps text-label-caps uppercase text-primary font-semibold">PRO TIER</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AEtjO1XamLGHgCc-SGuj1WwVHzjSr6IlDnqh5uth0csjUJkJsVzlcDiRfhfaUc29fmgdAydRyPOc6wl44vhqsnUkRyFD2BD2-VQ5MirSVWr5zeEdXNWqTczql0CAgCt1htMPZvoH1HzihbbV1YLyhc8pNiGNPvboRjf723iGmwOOeUoZ6xMuPnrfejzqHbVuSspGXd-Q3aSkCGduvURyMmQBr8HKpjhcnuO3tLbyIU5uLymwuYbkyrzP_lKrVfg"/></div></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-surface-container-lowest border-r border-outline-variant/30 z-40 flex flex-col justify-between select-none"><div class="flex flex-col py-space-sm"><div class="px-space-md py-space-xs"><span class="font-label-caps text-label-caps uppercase tracking-wider text-outline font-semibold">TERMINAL WORKSPACE</span></div><nav class="flex flex-col gap-0.5 px-space-xs mt-space-xs" data-active-classes="bg-surface-container text-primary font-semibold border-l-2 border-primary"><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">dashboard</span><span class="font-body-md text-body-md">Overview</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-outline group-hover:text-on-surface-variant">01</span></a><a aria-current="page" class="group flex items-center justify-between px-space-sm py-2 rounded transition-colors bg-surface-container text-primary font-semibold border-l-2 border-primary" data-path="autonomous-bot-control" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">memory</span><span class="font-body-md text-body-md">Autonomous Bot</span></div><span class="px-1.5 py-0.5 rounded bg-secondary/15 text-secondary font-label-numeric-sm text-label-numeric-sm leading-none border border-secondary/30">LIVE</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="market-scanner" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">radar</span><span class="font-body-md text-body-md">Market Scanner</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-outline group-hover:text-on-surface-variant">240+</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="ai-decisions" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">psychology</span><span class="font-body-md text-body-md">AI Decisions</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-primary group-hover:text-primary-fixed">98.4%</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="active-trades" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">candlestick_chart</span><span class="font-body-md text-body-md">Active Trades</span></div><span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-numeric-sm text-label-numeric-sm leading-none text-on-surface">14</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="strategy-engine" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">tune</span><span class="font-body-md text-body-md">Strategy Engine</span></div></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="backtesting" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">history_toggle_off</span><span class="font-body-md text-body-md">Backtesting</span></div></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="risk-and-security" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">shield</span><span class="font-body-md text-body-md">Risk &amp; Security</span></div><span class="w-2 h-2 rounded-full bg-secondary"></span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="terminal-settings" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">settings</span><span class="font-body-md text-body-md">Settings</span></div></a></nav></div><div class="p-space-sm border-t border-outline-variant/30 flex flex-col gap-space-xs bg-surface-container-lowest"><div class="flex items-center justify-between font-label-numeric-sm text-label-numeric-sm text-outline"><span class="uppercase font-label-caps text-label-caps">SYSTEM LOAD</span><span>14.2%</span></div><div class="w-full bg-surface-container h-1 rounded-full overflow-hidden"><div class="bg-primary h-full w-[14.2%]"></div></div><div class="flex items-center justify-between pt-space-xs text-outline"><span class="font-label-caps text-label-caps uppercase">SHARD NODE: SG-09</span><span class="font-label-numeric-sm text-label-numeric-sm text-secondary">ONLINE</span></div></div></aside><div class="pl-64"><main class="w-full pt-14 min-h-screen bg-background text-on-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- TOP TICKER & TELEMETRY CONTROL STRIP -->
+<div class="w-full bg-surface-container-lowest border-b border-outline-variant/20 px-margin-edge py-space-sm flex flex-col xl:flex-row xl:items-center justify-between gap-space-md select-none">
+<!-- Pair Identity & Ticker Readouts -->
+<div class="flex flex-wrap items-center gap-space-lg">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary/10 border border-primary/30 flex items-center justify-center font-label-numeric-md font-bold text-primary">
+          ₿
+        </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-on-surface">BTC/USDT</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container-high text-primary font-label-caps text-label-caps uppercase border border-primary/20">PERPETUAL</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Binance L3 + OKX Deep Stream</span>
+</div>
+</div>
+<div class="h-7 w-px bg-outline-variant/30 hidden sm:block"></div>
+<!-- Mark Price + Primary Delta -->
+<div class="flex flex-col">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-label-numeric-lg text-label-numeric-lg text-secondary font-bold">$64,820.50</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-medium">+3.82%</span>
+</div>
+<div class="flex items-center gap-space-sm text-outline font-label-numeric-sm text-label-numeric-sm">
+<span>Index: <span class="text-on-surface-variant">$64,815.10</span></span>
+<span>•</span>
+<span>Basis: <span class="text-secondary">+18 bps</span></span>
+</div>
+</div>
+<div class="h-7 w-px bg-outline-variant/30 hidden lg:block"></div>
+<!-- 24h High/Low/Vol Metrics -->
+<div class="hidden lg:grid grid-cols-3 gap-space-md text-left">
+<div>
+<span class="block font-label-caps text-label-caps uppercase text-outline">24h High</span>
+<span class="font-label-numeric-md text-label-numeric-md text-on-surface font-medium">$65,490.00</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps uppercase text-outline">24h Low</span>
+<span class="font-label-numeric-md text-label-numeric-md text-on-surface font-medium">$62,110.00</span>
+</div>
+<div>
+<span class="block font-label-caps text-label-caps uppercase text-outline">24h Volume (Consol)</span>
+<span class="font-label-numeric-md text-label-numeric-md text-on-surface-variant font-medium">$14.28B</span>
+</div>
+</div>
+</div>
+<!-- Live Telemetry Badges & Execution Action -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-secondary/10 border border-secondary/30 text-secondary">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-caps text-label-caps font-bold tracking-wider">EXPANSION REGIME</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low border border-outline-variant/30 text-outline">
+<span class="font-label-caps text-label-caps uppercase text-outline">FUNDING:</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-primary font-medium">+0.0084%</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline-variant">(03:22:15)</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-sm py-1 rounded bg-surface-container-low border border-outline-variant/30 text-outline">
+<span class="font-label-caps text-label-caps uppercase text-outline">EST. R:R:</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-semibold">1 : 3.8</span>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 rounded bg-primary text-on-primary font-label-caps text-label-caps uppercase font-bold hover:bg-primary-fixed transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-sm font-bold">smart_toy</span>
+<span>DEPLOY AGENT</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-sm py-1.5 rounded bg-surface-container-high border border-outline-variant/40 text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps uppercase transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>MANUAL OVERRIDE</span>
+</button>
+</div>
+</div>
+<!-- WORKBENCH SUB-HEADER: Timeframes, Indicator Overlays & Tools -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/20 px-margin-edge py-1.5 flex flex-wrap items-center justify-between gap-space-sm text-outline select-none">
+<div class="flex items-center gap-space-md">
+<!-- Timeframe Selector -->
+<div class="flex items-center bg-surface-container-lowest rounded p-0.5 border border-outline-variant/30">
+<button class="px-2 py-0.5 rounded font-label-numeric-sm text-label-numeric-sm hover:text-on-surface transition-colors" type="button">1m</button>
+<button class="px-2 py-0.5 rounded font-label-numeric-sm text-label-numeric-sm hover:text-on-surface transition-colors" type="button">5m</button>
+<button class="px-2 py-0.5 rounded font-label-numeric-sm text-label-numeric-sm hover:text-on-surface transition-colors" type="button">15m</button>
+<button class="px-2 py-0.5 rounded font-label-numeric-sm text-label-numeric-sm hover:text-on-surface transition-colors" type="button">1h</button>
+<button class="px-2 py-0.5 rounded bg-primary/20 text-primary font-label-numeric-sm text-label-numeric-sm font-semibold border border-primary/30" type="button">4h</button>
+<button class="px-2 py-0.5 rounded font-label-numeric-sm text-label-numeric-sm hover:text-on-surface transition-colors" type="button">1D</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant font-label-caps text-label-caps uppercase hover:text-primary transition-colors flex items-center gap-1 border-l border-outline-variant/30 pl-2" type="button">
+<span>ENSEMBLE (7-TF)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</button>
+</div>
+<div class="h-4 w-px bg-outline-variant/30"></div>
+<!-- Indicator Layer Toggles -->
+<div class="flex items-center gap-space-xs font-label-caps text-label-caps uppercase">
+<span class="text-outline-variant font-semibold">LAYERS:</span>
+<button class="px-1.5 py-0.5 rounded bg-primary/10 border border-primary/30 text-primary font-medium flex items-center gap-1" type="button">
+<span>VWAP ANCHOR</span>
+</button>
+<button class="px-1.5 py-0.5 rounded bg-primary/10 border border-primary/30 text-primary font-medium flex items-center gap-1" type="button">
+<span>VOL PROFILE</span>
+</button>
+<button class="px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/40 text-on-surface-variant hover:text-on-surface flex items-center gap-1" type="button">
+<span>LIQ HEATMAP</span>
+</button>
+<button class="px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/40 text-on-surface-variant hover:text-on-surface flex items-center gap-1" type="button">
+<span>L3 DEPTH IMBALANCE</span>
+</button>
+</div>
+</div>
+<!-- Chart Interaction Utilities -->
+<div class="flex items-center gap-space-sm font-label-caps text-label-caps">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">wifi_tethering</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">FEED: 4.8ms</span>
+</div>
+<div class="h-3 w-px bg-outline-variant/30"></div>
+<button class="p-1 rounded hover:bg-surface-container-high text-outline hover:text-on-surface" title="Crosshair" type="button">
+<span class="material-symbols-outlined text-base">near_me</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-high text-outline hover:text-on-surface" title="Fibonacci" type="button">
+<span class="material-symbols-outlined text-base">straighten</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-high text-outline hover:text-on-surface" title="Liquidity Blocks" type="button">
+<span class="material-symbols-outlined text-base">view_in_ar</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container-high text-outline hover:text-on-surface" title="Expand Fullscreen" type="button">
+<span class="material-symbols-outlined text-base">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- MAIN QUANTITATIVE WORKBENCH SPLIT-PANE -->
+<div class="w-full grid grid-cols-1 2xl:grid-cols-12 gap-0 flex-1">
+<!-- LEFT & CENTER-LEFT AREA: Deep Chart + Structural Orderflow Visualizations (8 of 12 cols = 66.6%) -->
+<div class="2xl:col-span-8 flex flex-col border-b 2xl:border-b-0 2xl:border-r border-outline-variant/20 bg-surface">
+<!-- PRIMARY CHART CANVAS CONTAINER -->
+<div class="relative w-full h-[520px] bg-surface-container-lowest p-margin-edge flex flex-col overflow-hidden select-none">
+<!-- Chart HUD Top Legends -->
+<div class="absolute top-3 left-4 z-20 flex flex-wrap items-center gap-space-md pointer-events-none">
+<div class="flex items-center gap-space-xs font-label-numeric-sm text-label-numeric-sm">
+<span class="font-semibold text-on-surface">BTCUSDT.P</span>
+<span class="text-outline">4H</span>
+<span class="text-outline">O: <span class="text-on-surface">63,940.0</span></span>
+<span class="text-outline">H: <span class="text-secondary">65,120.0</span></span>
+<span class="text-outline">L: <span class="text-tertiary">63,820.0</span></span>
+<span class="text-outline">C: <span class="text-secondary">64,820.5</span></span>
+</div>
+<div class="flex items-center gap-space-xs font-label-numeric-sm text-label-numeric-sm text-primary">
+<span>VWAP: 64,285.20</span>
+</div>
+<div class="flex items-center gap-space-xs font-label-numeric-sm text-label-numeric-sm text-on-surface-variant">
+<span>VAH: 65,340</span>
+<span>VAL: 63,410</span>
+<span>POC: 64,150</span>
+</div>
+</div>
+<!-- Chart Graphic (Candlestick Canvas + AI Target Zones + VWAP overlay) -->
+<div class="w-full h-full relative mt-6">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 460">
+<defs>
+<lineargradient id="bullGlow" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#4edea3" stop-opacity="0.18"></stop>
+<stop offset="100%" stop-color="#4edea3" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="bearGlow" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#ff5451" stop-opacity="0.15"></stop>
+<stop offset="100%" stop-color="#ff5451" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="vpBidGrad" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#4edea3" stop-opacity="0.0"></stop>
+<stop offset="100%" stop-color="#4edea3" stop-opacity="0.25"></stop>
+</lineargradient>
+<lineargradient id="vpAskGrad" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0%" stop-color="#ff5451" stop-opacity="0.0"></stop>
+<stop offset="100%" stop-color="#ff5451" stop-opacity="0.25"></stop>
+</lineargradient>
+</defs>
+<!-- Grid Lines (Horizontal Price Steps) -->
+<line stroke="#464554" stroke-dasharray="3 3" stroke-opacity="0.2" x1="0" x2="920" y1="60" y2="60"></line>
+<line stroke="#464554" stroke-dasharray="3 3" stroke-opacity="0.2" x1="0" x2="920" y1="130" y2="130"></line>
+<line stroke="#464554" stroke-dasharray="3 3" stroke-opacity="0.2" x1="0" x2="920" y1="200" y2="200"></line>
+<line stroke="#464554" stroke-dasharray="3 3" stroke-opacity="0.2" x1="0" x2="920" y1="270" y2="270"></line>
+<line stroke="#464554" stroke-dasharray="3 3" stroke-opacity="0.2" x1="0" x2="920" y1="340" y2="340"></line>
+<line stroke="#464554" stroke-dasharray="3 3" stroke-opacity="0.2" x1="0" x2="920" y1="410" y2="410"></line>
+<!-- Grid Lines (Vertical Time Steps) -->
+<line stroke="#464554" stroke-dasharray="2 4" stroke-opacity="0.15" x1="150" x2="150" y1="0" y2="430"></line>
+<line stroke="#464554" stroke-dasharray="2 4" stroke-opacity="0.15" x1="320" x2="320" y1="0" y2="430"></line>
+<line stroke="#464554" stroke-dasharray="2 4" stroke-opacity="0.15" x1="490" x2="490" y1="0" y2="430"></line>
+<line stroke="#464554" stroke-dasharray="2 4" stroke-opacity="0.15" x1="660" x2="660" y1="0" y2="430"></line>
+<line stroke="#464554" stroke-dasharray="2 4" stroke-opacity="0.15" x1="830" x2="830" y1="0" y2="430"></line>
+<!-- AI TARGET EXECUTION ZONES & BOUNDS -->
+<!-- Take Profit 2 ($67,400) -->
+<line stroke="#4edea3" stroke-dasharray="4 2" stroke-width="1.5" x1="560" x2="920" y1="45" y2="45"></line>
+<rect fill="#181c23" height="18" rx="2" stroke="#4edea3" stroke-width="1" width="120" x="800" y="36"></rect>
+<text fill="#4edea3" font-family="JetBrains Mono" font-size="10" font-weight="600" x="805" y="49">TP2: $67,400 (+4.1%)</text>
+<!-- Take Profit 1 ($66,100) -->
+<line stroke="#4edea3" stroke-dasharray="4 2" stroke-width="1.5" x1="560" x2="920" y1="105" y2="105"></line>
+<rect fill="#181c23" height="18" rx="2" stroke="#4edea3" stroke-width="1" width="120" x="800" y="96"></rect>
+<text fill="#4edea3" font-family="JetBrains Mono" font-size="10" font-weight="600" x="805" y="109">TP1: $66,100 (+2.1%)</text>
+<!-- AI Optimal Accumulation / Entry Band ($64,650 - $64,850) -->
+<rect fill="#c0c1ff" fill-opacity="0.08" height="34" stroke="#8083ff" stroke-dasharray="3 3" stroke-width="1" width="400" x="520" y="178"></rect>
+<rect fill="#181c23" height="20" rx="2" stroke="#8083ff" stroke-width="1" width="180" x="740" y="185"></rect>
+<text fill="#c0c1ff" font-family="JetBrains Mono" font-size="10" font-weight="600" x="745" y="199">AI ACCUMULATION: $64.6K - $64.8K</text>
+<!-- Invalidation / Hard SL ($63,890) -->
+<line stroke="#ff5451" stroke-dasharray="3 2" stroke-width="1.5" x1="520" x2="920" y1="285" y2="285"></line>
+<rect fill="#181c23" height="18" rx="2" stroke="#ff5451" stroke-width="1" width="130" x="790" y="276"></rect>
+<text fill="#ffb3ad" font-family="JetBrains Mono" font-size="10" font-weight="600" x="795" y="289">STOP LOSS: $63,890 (-1.35%)</text>
+<!-- Anchor Volume Weighted Average Price (VWAP) Trendline -->
+<path d="M 0,260 Q 200,250 400,240 T 700,215 T 920,205" fill="none" stroke="#c0c1ff" stroke-opacity="0.85" stroke-width="2"></path>
+<!-- Bollinger / Volatility Expansion Bands (Upper/Lower) -->
+<path d="M 0,210 Q 200,200 400,180 T 700,140 T 920,115" fill="none" stroke="#464554" stroke-dasharray="2 2" stroke-width="1"></path>
+<path d="M 0,310 Q 200,300 400,300 T 700,290 T 920,295" fill="none" stroke="#464554" stroke-dasharray="2 2" stroke-width="1"></path>
+<!-- Volume Profile Overlay (Right Axis 850px to 920px) -->
+<rect fill="url(#vpAskGrad)" height="12" width="50" x="870" y="55"></rect>
+<rect fill="url(#vpAskGrad)" height="14" width="70" x="850" y="80"></rect>
+<rect fill="url(#vpAskGrad)" height="16" width="90" x="830" y="105"></rect>
+<rect fill="url(#vpAskGrad)" height="15" width="60" x="860" y="130"></rect>
+<rect fill="url(#vpBidGrad)" height="18" width="100" x="820" y="155"></rect>
+<rect fill="url(#vpBidGrad)" height="26" width="130" x="790" y="180"></rect> <!-- High Volume Node (POC) -->
+<rect fill="url(#vpBidGrad)" height="20" width="110" x="810" y="215"></rect>
+<rect fill="url(#vpBidGrad)" height="18" width="80" x="840" y="245"></rect>
+<rect fill="url(#vpBidGrad)" height="16" width="40" x="880" y="275"></rect>
+<!-- CANDLESTICKS (Simulated Institutional Flow) -->
+<!-- Bar 1: Bearish sweep -->
+<line stroke="#ff5451" stroke-width="1.2" x1="40" x2="40" y1="220" y2="295"></line>
+<rect fill="#ff5451" height="42" width="10" x="35" y="235"></rect>
+<!-- Bar 2: Doji stabilization -->
+<line stroke="#4edea3" stroke-width="1.2" x1="75" x2="75" y1="260" y2="305"></line>
+<rect fill="#4edea3" height="8" width="10" x="70" y="270"></rect>
+<!-- Bar 3: Absorption Green -->
+<line stroke="#4edea3" stroke-width="1.2" x1="110" x2="110" y1="250" y2="285"></line>
+<rect fill="#4edea3" height="19" width="10" x="105" y="258"></rect>
+<!-- Bar 4: Continuation -->
+<line stroke="#4edea3" stroke-width="1.2" x1="145" x2="145" y1="230" y2="270"></line>
+<rect fill="#4edea3" height="24" width="10" x="140" y="238"></rect>
+<!-- Bar 5: Small pullback -->
+<line stroke="#ff5451" stroke-width="1.2" x1="180" x2="180" y1="240" y2="275"></line>
+<rect fill="#ff5451" height="15" width="10" x="175" y="248"></rect>
+<!-- Bar 6: Liquidity sweep low ($63,800 bounce) -->
+<line stroke="#4edea3" stroke-width="1.5" x1="215" x2="215" y1="242" y2="320"></line>
+<rect fill="#4edea3" height="14" width="10" x="210" y="250"></rect>
+<!-- Sweep indicator mark -->
+<circle cx="215" cy="318" fill="#ffb4ab" r="3"></circle>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="9" x="225" y="325">Sweep $63.8k</text>
+<!-- Bar 7: Rebound impulse -->
+<line stroke="#4edea3" stroke-width="1.2" x1="250" x2="250" y1="215" y2="265"></line>
+<rect fill="#4edea3" height="34" width="10" x="245" y="222"></rect>
+<!-- Bar 8: Strong impulse candle -->
+<line stroke="#4edea3" stroke-width="1.2" x1="285" x2="285" y1="195" y2="235"></line>
+<rect fill="#4edea3" height="28" width="10" x="280" y="200"></rect>
+<!-- Bar 9: High volume flag consolidation -->
+<line stroke="#ff5451" stroke-width="1.2" x1="320" x2="320" y1="198" y2="230"></line>
+<rect fill="#ff5451" height="14" width="10" x="315" y="205"></rect>
+<!-- Bar 10 -->
+<line stroke="#4edea3" stroke-width="1.2" x1="355" x2="355" y1="202" y2="228"></line>
+<rect fill="#4edea3" height="11" width="10" x="350" y="208"></rect>
+<!-- Bar 11: Push higher -->
+<line stroke="#4edea3" stroke-width="1.2" x1="390" x2="390" y1="185" y2="220"></line>
+<rect fill="#4edea3" height="22" width="10" x="385" y="190"></rect>
+<!-- Bar 12: Pullback test of VWAP -->
+<line stroke="#ff5451" stroke-width="1.2" x1="425" x2="425" y1="200" y2="245"></line>
+<rect fill="#ff5451" height="26" width="10" x="420" y="205"></rect>
+<!-- Bar 13: VWAP bounce confirmation -->
+<line stroke="#4edea3" stroke-width="1.2" x1="460" x2="460" y1="190" y2="238"></line>
+<rect fill="#4edea3" height="25" width="10" x="455" y="198"></rect>
+<!-- Bar 14: Bullish engulfing -->
+<line stroke="#4edea3" stroke-width="1.2" x1="495" x2="495" y1="170" y2="215"></line>
+<rect fill="#4edea3" height="32" width="10" x="490" y="175"></rect>
+<!-- Bar 15: Minor rejection at $65.2k -->
+<line stroke="#ff5451" stroke-width="1.2" x1="530" x2="530" y1="155" y2="200"></line>
+<rect fill="#ff5451" height="22" width="10" x="525" y="168"></rect>
+<!-- Bar 16: Consolidation box -->
+<line stroke="#4edea3" stroke-width="1.2" x1="565" x2="565" y1="172" y2="202"></line>
+<rect fill="#4edea3" height="16" width="10" x="560" y="178"></rect>
+<!-- Bar 17: Current forming breakout candle -->
+<line stroke="#4edea3" stroke-width="1.5" x1="600" x2="600" y1="165" y2="205"></line>
+<rect fill="#4edea3" height="26" width="10" x="595" y="170"></rect>
+<!-- Live Ping cursor -->
+<circle class="animate-ping" cx="600" cy="170" fill="#4edea3" r="4"></circle>
+<circle cx="600" cy="170" fill="#ffffff" r="2.5"></circle>
+<!-- Sub-volume Histogram Bars (Bottom of Chart) -->
+<rect fill="#ff5451" fill-opacity="0.5" height="25" width="10" x="35" y="400"></rect>
+<rect fill="#4edea3" fill-opacity="0.5" height="15" width="10" x="70" y="410"></rect>
+<rect fill="#4edea3" fill-opacity="0.6" height="35" width="10" x="105" y="390"></rect>
+<rect fill="#4edea3" fill-opacity="0.6" height="30" width="10" x="140" y="395"></rect>
+<rect fill="#ff5451" fill-opacity="0.5" height="13" width="10" x="175" y="412"></rect>
+<rect fill="#4edea3" fill-opacity="0.9" height="65" width="10" x="210" y="360"></rect> <!-- Liquidity absorb surge -->
+<rect fill="#4edea3" fill-opacity="0.7" height="45" width="10" x="245" y="380"></rect>
+<rect fill="#4edea3" fill-opacity="0.7" height="50" width="10" x="280" y="375"></rect>
+<rect fill="#ff5451" fill-opacity="0.5" height="15" width="10" x="315" y="410"></rect>
+<rect fill="#4edea3" fill-opacity="0.5" height="10" width="10" x="350" y="415"></rect>
+<rect fill="#4edea3" fill-opacity="0.6" height="37" width="10" x="385" y="388"></rect>
+<rect fill="#ff5451" fill-opacity="0.5" height="23" width="10" x="420" y="402"></rect>
+<rect fill="#4edea3" fill-opacity="0.7" height="43" width="10" x="455" y="382"></rect>
+<rect fill="#4edea3" fill-opacity="0.85" height="60" width="10" x="490" y="365"></rect>
+<rect fill="#ff5451" fill-opacity="0.5" height="27" width="10" x="525" y="398"></rect>
+<rect fill="#4edea3" fill-opacity="0.5" height="20" width="10" x="560" y="405"></rect>
+<rect fill="#4edea3" fill-opacity="0.9" height="55" width="10" x="595" y="370"></rect>
+<!-- Current Price Marker Line ($64,820.50) -->
+<line stroke="#4edea3" stroke-dasharray="2 2" stroke-width="1.2" x1="0" x2="920" y1="170" y2="170"></line>
+<rect fill="#4edea3" height="20" rx="1" width="76" x="922" y="160"></rect>
+<text fill="#003824" font-family="JetBrains Mono" font-size="11" font-weight="700" x="926" y="174">64,820.50</text>
+<!-- Right Y-Axis Scale Values -->
+<text fill="#908fa0" font-family="JetBrains Mono" font-size="10" x="930" y="64">67,000.0</text>
+<text fill="#908fa0" font-family="JetBrains Mono" font-size="10" x="930" y="134">65,800.0</text>
+<text fill="#908fa0" font-family="JetBrains Mono" font-size="10" x="930" y="204">64,500.0</text>
+<text fill="#908fa0" font-family="JetBrains Mono" font-size="10" x="930" y="274">63,800.0</text>
+<text fill="#908fa0" font-family="JetBrains Mono" font-size="10" x="930" y="344">62,900.0</text>
+<text fill="#908fa0" font-family="JetBrains Mono" font-size="10" x="930" y="414">VOL (BTC)</text>
+</svg>
+</div>
+<!-- Bottom Timeline Axis -->
+<div class="w-full flex items-center justify-between text-outline font-label-numeric-sm text-label-numeric-sm border-t border-outline-variant/20 pt-1 pr-20 select-none">
+<span>12:00</span>
+<span>16:00</span>
+<span>20:00</span>
+<span>00:00 (UTC)</span>
+<span>04:00</span>
+<span>08:00</span>
+<span>12:00</span>
+<span>NOW</span>
+</div>
+</div>
+<!-- QUANTITATIVE SUB-PANELS (MICROSTRUCTURE, CVD & TELEMETRY GRID) -->
+<div class="w-full grid grid-cols-1 lg:grid-cols-3 border-t border-outline-variant/20 divide-y lg:divide-y-0 lg:divide-x divide-outline-variant/20 bg-surface-container-lowest">
+<!-- Panel 1: L3 Order Book Imbalance & Cumulative Volume Delta (CVD) -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold tracking-wider">CVD &amp; Orderbook Delta</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-bold">+142.4M USD</span>
+</div>
+<!-- Taker Buy/Sell Aggression Ratio -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-numeric-sm text-label-numeric-sm">
+<span class="text-secondary font-medium">Aggressive Bids: 68.4%</span>
+<span class="text-tertiary font-medium">Asks: 31.6%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-sm overflow-hidden flex">
+<div class="h-full bg-secondary" style="width: 68.4%;"></div>
+<div class="h-full bg-tertiary" style="width: 31.6%;"></div>
+</div>
+</div>
+<!-- Micro Sparkline CVD -->
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">1h Spot CVD Delta:</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-semibold">+$38.2M</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">1h Perp CVD Delta:</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-semibold">+$104.2M</span>
+</div>
+</div>
+<!-- Panel 2: Liquidation Heatmap Summary -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold tracking-wider">Liquidation Cascades</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-tertiary font-semibold">SHORT POOL DENSITY</span>
+</div>
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/30 flex flex-col gap-1">
+<div class="flex justify-between font-label-numeric-sm text-label-numeric-sm">
+<span class="text-on-surface font-semibold">$65,500 – $65,900</span>
+<span class="text-primary font-bold">$180.5M Pool</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+              Dense short-stop clustering above local high. AI model projects 82% cascade probability upon $65,200 breach.
+            </p>
+</div>
+<div class="flex items-center justify-between text-outline font-label-numeric-sm text-label-numeric-sm pt-0.5">
+<span>Downside Long Buffer:</span>
+<span class="text-on-surface font-medium">$63,200 ($44.1M)</span>
+</div>
+</div>
+<!-- Panel 3: Multi-Factor Telemetry Matrix -->
+<div class="p-space-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold tracking-wider">Factor Model Health</span>
+<span class="font-label-caps text-label-caps uppercase text-primary font-bold">ALPHA MATRIX v4</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-left">
+<div class="p-1.5 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Momentum Score</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-numeric-md text-label-numeric-md text-secondary font-bold">88</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">/ 100</span>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">ATR Vol Expansion</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-numeric-md text-label-numeric-md text-primary font-bold">3.2%</span>
+<span class="font-label-caps text-label-caps uppercase text-secondary">SURGE</span>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Open Interest (1h)</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-numeric-md text-label-numeric-md text-secondary font-bold">+4.8%</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">(+$480M)</span>
+</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">Whale Flow Index</span>
+<div class="flex items-baseline gap-1">
+<span class="font-label-numeric-md text-label-numeric-md text-secondary font-bold">+0.74</span>
+<span class="font-label-caps text-label-caps text-secondary font-medium">BULL</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- DEEP LIQUIDITY HEATMAP TIER MATRIX (Micro-table) -->
+<div class="w-full border-t border-outline-variant/20 p-space-md bg-surface-container-lowest">
+<div class="flex items-center justify-between pb-2">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base">layers</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Aggregated L3 Orderbook Depth &amp; Liquidity Walls</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Snapshot Frequency: Real-Time WebSocket</span>
+</div>
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left font-label-numeric-sm text-label-numeric-sm">
+<thead>
+<tr class="text-outline uppercase font-label-caps text-label-caps border-b border-outline-variant/20">
+<th class="py-1.5 px-2">Side / Depth Zone</th>
+<th class="py-1.5 px-2">Price Level</th>
+<th class="py-1.5 px-2 text-right">Cumulative Volume</th>
+<th class="py-1.5 px-2 text-right">Liquidity Weight</th>
+<th class="py-1.5 px-2 text-right">Estimated Impact</th>
+<th class="py-1.5 px-2 text-right">Venue Allocation</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10 text-on-surface-variant">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-1.5 px-2 font-medium text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Major Resistance Block
+                </td>
+<td class="py-1.5 px-2 font-semibold text-on-surface">$66,100.00</td>
+<td class="py-1.5 px-2 text-right font-medium">1,824.2 BTC</td>
+<td class="py-1.5 px-2 text-right text-tertiary">22.4% Ask Book</td>
+<td class="py-1.5 px-2 text-right font-medium text-tertiary">+0.42% Slippage</td>
+<td class="py-1.5 px-2 text-right text-outline">Binance 54% / OKX 46%</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-1.5 px-2 font-medium text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Cascade Inception
+                </td>
+<td class="py-1.5 px-2 font-semibold text-on-surface">$65,500.00</td>
+<td class="py-1.5 px-2 text-right font-medium">940.5 BTC</td>
+<td class="py-1.5 px-2 text-right text-tertiary">14.1% Ask Book</td>
+<td class="py-1.5 px-2 text-right font-medium text-tertiary">+0.18% Slippage</td>
+<td class="py-1.5 px-2 text-right text-outline">Binance 62% / Bybit 38%</td>
+</tr>
+<tr class="hover:bg-surface-container bg-surface-container/30 transition-colors">
+<td class="py-1.5 px-2 font-semibold text-secondary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Mid-Spread Peg (CURRENT)
+                </td>
+<td class="py-1.5 px-2 font-bold text-secondary">$64,820.50</td>
+<td class="py-1.5 px-2 text-right font-bold text-on-surface">312.8 BTC</td>
+<td class="py-1.5 px-2 text-right text-secondary">Balanced Flow</td>
+<td class="py-1.5 px-2 text-right font-bold text-secondary">&lt; 0.01%</td>
+<td class="py-1.5 px-2 text-right text-on-surface">L3 Consolidated</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-1.5 px-2 font-medium text-secondary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Primary Institutional Bid
+                </td>
+<td class="py-1.5 px-2 font-semibold text-on-surface">$64,500.00</td>
+<td class="py-1.5 px-2 text-right font-medium text-secondary">2,140.0 BTC ($138M)</td>
+<td class="py-1.5 px-2 text-right text-secondary">38.2% Bid Book</td>
+<td class="py-1.5 px-2 text-right font-medium text-secondary">Solid Floor Cushion</td>
+<td class="py-1.5 px-2 text-right text-outline">Coinbase Custody / CME Ref</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-1.5 px-2 font-medium text-secondary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Hard Structural Floor
+                </td>
+<td class="py-1.5 px-2 font-semibold text-on-surface">$63,890.00</td>
+<td class="py-1.5 px-2 text-right font-medium text-secondary">3,480.1 BTC</td>
+<td class="py-1.5 px-2 text-right text-secondary">48.9% Bid Book</td>
+<td class="py-1.5 px-2 text-right font-medium text-secondary">Deterministic SL Pivot</td>
+<td class="py-1.5 px-2 text-right text-outline">Consolidated Depth</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (~33.3%): AI DECISION INTELLIGENCE & EXPLAINABILITY ENGINE -->
+<div class="2xl:col-span-4 flex flex-col bg-surface-container-lowest p-margin-edge gap-space-md select-none">
+<!-- PRIMARY AUTONOMOUS SIGNAL CARD -->
+<div class="p-space-md rounded bg-surface-container border border-primary/40 shadow-sm flex flex-col gap-space-md">
+<!-- Signal Title & Confidence Meter -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider">ACTIVE QUANT CALL</span>
+</div>
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">STRONG LONG (CONVICTION)</span>
+</div>
+<div class="text-right">
+<span class="font-label-numeric-lg text-label-numeric-lg text-primary font-bold">94.2%</span>
+<span class="block font-label-caps text-label-caps uppercase text-outline">ENSEMBLE AGREEMENT</span>
+</div>
+</div>
+<!-- Segmented Confidence Visual Meter -->
+<div class="flex flex-col gap-1">
+<div class="flex gap-1 h-2 w-full">
+<div class="flex-1 bg-primary rounded-xs"></div>
+<div class="flex-1 bg-primary rounded-xs"></div>
+<div class="flex-1 bg-primary rounded-xs"></div>
+<div class="flex-1 bg-primary rounded-xs"></div>
+<div class="flex-1 bg-primary rounded-xs"></div>
+<div class="flex-1 bg-primary rounded-xs"></div>
+<div class="flex-1 bg-primary/40 rounded-xs"></div>
+</div>
+<div class="flex justify-between font-label-numeric-sm text-label-numeric-sm text-outline">
+<span>6 of 7 Sub-Models Agree</span>
+<span class="text-primary font-medium">Model v4.2 Institutional</span>
+</div>
+</div>
+<!-- Optimal Execution Bounds Table -->
+<div class="bg-surface-container-lowest rounded p-space-sm border border-outline-variant/30 flex flex-col gap-1.5 font-label-numeric-sm text-label-numeric-sm">
+<div class="flex justify-between items-center py-0.5 border-b border-outline-variant/20">
+<span class="text-outline uppercase font-label-caps text-label-caps">Recommended Entry:</span>
+<span class="text-on-surface font-semibold">$64,650.00 – $64,820.00 <span class="text-primary font-normal">(TWAP)</span></span>
+</div>
+<div class="flex justify-between items-center py-0.5 border-b border-outline-variant/20">
+<span class="text-outline uppercase font-label-caps text-label-caps">Invalidation / Hard SL:</span>
+<span class="text-tertiary font-semibold">$63,890.00 <span class="text-tertiary/70 font-normal">(-1.35% / -$1,820 VaR)</span></span>
+</div>
+<div class="flex justify-between items-center py-0.5 border-b border-outline-variant/20">
+<span class="text-outline uppercase font-label-caps text-label-caps">Take Profit 1 (40% De-risk):</span>
+<span class="text-secondary font-semibold">$66,100.00 <span class="text-secondary/70 font-normal">(+2.05%)</span></span>
+</div>
+<div class="flex justify-between items-center py-0.5 border-b border-outline-variant/20">
+<span class="text-outline uppercase font-label-caps text-label-caps">Take Profit 2 (35% Lock-in):</span>
+<span class="text-secondary font-semibold">$67,400.00 <span class="text-secondary/70 font-normal">(+4.10%)</span></span>
+</div>
+<div class="flex justify-between items-center py-0.5 border-b border-outline-variant/20">
+<span class="text-outline uppercase font-label-caps text-label-caps">Take Profit 3 (25% Runner):</span>
+<span class="text-secondary font-semibold">$69,000.00 <span class="text-secondary/70 font-normal">(+6.60% Trailing ATR)</span></span>
+</div>
+<div class="flex justify-between items-center pt-1">
+<span class="text-outline uppercase font-label-caps text-label-caps">Kelly Sizing Rec:</span>
+<span class="text-primary font-bold">2.15 BTC <span class="text-on-surface-variant font-normal">($139,364 - 28% Slot)</span></span>
+</div>
+</div>
+</div>
+<!-- STRUCTURED MULTI-LAYER EXPLAINABILITY MODULE -->
+<div class="p-space-md rounded bg-surface-container border border-outline-variant/30 flex flex-col gap-space-sm flex-1">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-2">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-base">psychology</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Decision Explainability</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-outline">WEIGHT DECOMPOSITION</span>
+</div>
+<!-- Quantitative Factor Breakdown Accordion / List -->
+<div class="flex flex-col gap-space-sm overflow-y-auto pr-1">
+<!-- Factor 1 -->
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">1. Market Structure &amp; Regime</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-numeric-sm text-label-numeric-sm">Weight: 30%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Confirmed 4H higher-low liquidity sweep at $63,800 followed by instantaneous absorption of $42M market sells. Volatility transitioned from contraction to bullish expansion.
+            </p>
+</div>
+<!-- Factor 2 -->
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold">2. Microstructure &amp; Order Flow</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-numeric-sm text-label-numeric-sm">Weight: 25%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              L3 order book reveals massive passive limit bids stacked at $64,500 ($86M cumulative). Ask liquidity thin up to $65,500, creating an asymmetric positive slippage profile.
+            </p>
+</div>
+<!-- Factor 3 -->
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-primary font-bold">3. Derivative Positioning &amp; Funding</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-numeric-sm text-label-numeric-sm">Weight: 20%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Funding rate suppressed at neutral-positive (+0.0084%) despite spot premium. Estimated short liquidation cluster of $180.5M between $65,500 and $66,200 represents high-probability fuel.
+            </p>
+</div>
+<!-- Factor 4 -->
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-bold">4. Multi-TF Ensemble Agreement</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-numeric-sm text-label-numeric-sm">Weight: 15%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              6 of 7 sub-models (Trend Momentum, Order Flow Alpha, Mean Reversion Guard, Breakout Radar) in unaligned long consensus.
+            </p>
+</div>
+<!-- Factor 5 -->
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/20 flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline font-bold">5. Invalidation &amp; Risk Asymmetry</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-numeric-sm text-label-numeric-sm">Weight: 10%</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Clean invalidation below structural pivot ($63,890); any close below triggers instant deterministic shutdown, protecting capital.
+            </p>
+</div>
+</div>
+</div>
+<!-- HISTORICAL BACKTEST PERFORMANCE FOR THIS EXACT REGIME SETUP -->
+<div class="p-space-md rounded bg-surface-container border border-outline-variant/30 flex flex-col gap-space-xs">
+<div class="flex items-center justify-between pb-1 border-b border-outline-variant/20">
+<span class="font-label-caps text-label-caps uppercase text-outline font-semibold">Backtest Attribution</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-primary font-medium">BTC Breakout Setup v3.1</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm pt-1 text-center">
+<div class="p-1.5 rounded bg-surface-container-low border border-outline-variant/20">
+<span class="block font-label-caps text-label-caps uppercase text-outline">Win Rate</span>
+<span class="font-label-numeric-md text-label-numeric-md text-secondary font-bold">78.4%</span>
+<span class="block font-label-numeric-sm text-label-numeric-sm text-outline-variant">142 Signals</span>
+</div>
+<div class="p-1.5 rounded bg-surface-container-low border border-outline-variant/20">
+<span class="block font-label-caps text-label-caps uppercase text-outline">Profit Factor</span>
+<span class="font-label-numeric-md text-label-numeric-md text-primary font-bold">3.12</span>
+<span class="block font-label-numeric-sm text-label-numeric-sm text-outline-variant">Expectancy 1.84</span>
+</div>
+<div class="p-1.5 rounded bg-surface-container-low border border-outline-variant/20">
+<span class="block font-label-caps text-label-caps uppercase text-outline">Avg Holding</span>
+<span class="font-label-numeric-md text-label-numeric-md text-on-surface font-bold">4h 18m</span>
+<span class="block font-label-numeric-sm text-label-numeric-sm text-outline-variant">Max DD: -2.4%</span>
+</div>
+</div>
+</div>
+<!-- ONE-CLICK AUTONOMOUS EXECUTION CONTROLLER -->
+<div class="p-space-md rounded bg-surface-container-high border border-primary/40 flex flex-col gap-space-sm shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-base">security</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface font-bold">EXECUTION RISK CONTROLS</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">SAFE PASS</span>
+</div>
+<!-- Risk Control Toggles -->
+<div class="flex flex-col gap-1.5 text-outline font-label-numeric-sm text-label-numeric-sm">
+<label class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest border border-outline-variant/30 cursor-pointer">
+<span class="text-on-surface font-body-sm text-body-sm">Auto-Hedge via OKX Perp</span>
+<input checked="" class="accent-primary w-4 h-4 cursor-pointer" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between p-1.5 rounded bg-surface-container-lowest border border-outline-variant/30 cursor-pointer">
+<span class="text-on-surface font-body-sm text-body-sm">Dynamic Trailing Stop (ATR 1.8x)</span>
+<input checked="" class="accent-primary w-4 h-4 cursor-pointer" type="checkbox"/>
+</label>
+</div>
+<!-- Big Execution Action -->
+<button class="w-full py-2.5 rounded bg-primary text-on-primary font-headline-sm text-headline-sm font-bold flex items-center justify-center gap-space-xs hover:bg-primary-fixed hover:text-on-primary-fixed transition-all shadow-md mt-1" type="button">
+<span class="material-symbols-outlined text-lg">bolt</span>
+<span>AUTHORIZE AUTONOMOUS AGENT FOR BTC/USDT</span>
+</button>
+<span class="text-center font-label-numeric-sm text-label-numeric-sm text-outline">
+          Deterministic Sub-second routing enabled via Binance L3 WebSocket API
+        </span>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#c0c1ff","on-tertiary-fixed":"#410004","on-surface":"#dfe2ed","on-tertiary-container":"#5c0008","primary-fixed-dim":"#c0c1ff","inverse-primary":"#494bd6","on-tertiary-fixed-variant":"#930013","background":"#0f131b","surface-container-highest":"#31353d","outline-variant":"#464554","primary-container":"#8083ff","surface-container-low":"#181c23","on-secondary-fixed":"#002113","primary-fixed":"#e1e0ff","surface-container":"#1c2027","surface":"#0f131b","error-container":"#93000a","on-secondary":"#003824","on-secondary-container":"#00311f","secondary-fixed":"#6ffbbe","on-error":"#690005","tertiary-fixed-dim":"#ffb3ad","on-primary":"#1000a9","error":"#ffb4ab","on-primary-fixed":"#07006c","on-background":"#dfe2ed","on-primary-container":"#0d0096","on-surface-variant":"#c7c4d7","surface-container-high":"#262a32","inverse-surface":"#dfe2ed","primary":"#c0c1ff","inverse-on-surface":"#2d3038","tertiary-container":"#ff5451","on-secondary-fixed-variant":"#005236","surface-container-lowest":"#0a0e15","secondary-container":"#00a572","on-tertiary":"#68000a","tertiary":"#ffb3ad","tertiary-fixed":"#ffdad7","secondary-fixed-dim":"#4edea3","on-error-container":"#ffdad6","surface-bright":"#353941","on-primary-fixed-variant":"#2f2ebe","outline":"#908fa0","surface-variant":"#31353d","surface-dim":"#0f131b","secondary":"#4edea3"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-edge":"12px","space-2xl":"32px","space-xs":"4px","gutter-terminal":"8px","space-base":"16px","space-lg":"20px","space-md":"12px","space-2xs":"2px","space-sm":"8px","space-xl":"24px"},fontFamily:{"label-numeric-lg":["JetBrains Mono"],"headline-xl":["Geist"],"label-numeric-md":["JetBrains Mono"],"headline-md":["Geist"],"body-md":["Geist"],"headline-sm":["Geist"],"body-sm":["Geist"],"body-lg":["Geist"],"label-numeric-sm":["JetBrains Mono"],"label-caps":["Geist"],"headline-lg":["Geist"]},fontSize:{"label-numeric-lg":["18px",{lineHeight:"22px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-xl":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"label-numeric-md":["13px",{lineHeight:"16px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-md":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-numeric-sm":["11px",{lineHeight:"14px",letterSpacing:"0em",fontWeight:"400"}],"label-caps":["10px",{lineHeight:"12px",letterSpacing:"0.08em",fontWeight:"600"}],"headline-lg":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 h-14 z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant/30 flex items-center justify-between px-margin-edge select-none"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded bg-primary-container/20 border border-primary/40 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-base">deployed_code</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-on-surface">AlphaTrade</span><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary">AI</span></div></div><span class="px-space-xs py-space-2xs bg-surface-container-high rounded font-label-caps text-label-caps uppercase text-outline tracking-wider border border-outline-variant/40">INSTITUTIONAL v4.2</span></div><div class="h-4 w-px bg-outline-variant/40 hidden xl:block"></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded border border-outline-variant/20"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span><span class="font-label-caps text-label-caps uppercase text-outline">REGIME:</span><span class="font-label-numeric-sm text-label-numeric-sm text-tertiary">High Volatility Expansion</span></div><div class="h-4 w-px bg-outline-variant/40 hidden 2xl:block"></div><div class="hidden 2xl:flex items-center gap-space-xs text-outline font-label-numeric-sm text-label-numeric-sm"><span class="material-symbols-outlined text-sm text-outline">bolt</span><span>Execution:</span><span class="text-secondary font-medium">4.8ms</span><span class="text-outline-variant">|</span><span class="text-on-surface-variant">Binance &amp; Bybit L3 Connected</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-secondary/10 border border-secondary/30 rounded"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider">AUTONOMOUS ACTIVE</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-low rounded border border-outline-variant/20 text-outline"><span class="material-symbols-outlined text-sm text-primary">lock</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">AES-256 GCM</span></div><button class="flex items-center gap-space-xs px-space-sm py-1.5 bg-error-container/20 hover:bg-error-container/40 border border-error/50 hover:border-error text-error rounded transition-colors duration-150" type="button"><span class="material-symbols-outlined text-sm">gpp_bad</span><span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">EMERGENCY STOP</span></button><div class="h-5 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col items-end text-right"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Alpha-01</span><span class="font-label-caps text-label-caps uppercase text-primary font-semibold">PRO TIER</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AEtjO1XamLGHgCc-SGuj1WwVHzjSr6IlDnqh5uth0csjUJkJsVzlcDiRfhfaUc29fmgdAydRyPOc6wl44vhqsnUkRyFD2BD2-VQ5MirSVWr5zeEdXNWqTczql0CAgCt1htMPZvoH1HzihbbV1YLyhc8pNiGNPvboRjf723iGmwOOeUoZ6xMuPnrfejzqHbVuSspGXd-Q3aSkCGduvURyMmQBr8HKpjhcnuO3tLbyIU5uLymwuYbkyrzP_lKrVfg"/></div></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-surface-container-lowest border-r border-outline-variant/30 z-40 flex flex-col justify-between select-none"><div class="flex flex-col py-space-sm"><div class="px-space-md py-space-xs"><span class="font-label-caps text-label-caps uppercase tracking-wider text-outline font-semibold">TERMINAL WORKSPACE</span></div><nav class="flex flex-col gap-0.5 px-space-xs mt-space-xs" data-active-classes="bg-surface-container text-primary font-semibold border-l-2 border-primary"><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">dashboard</span><span class="font-body-md text-body-md">Overview</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-outline group-hover:text-on-surface-variant">01</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="autonomous-bot-control" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">memory</span><span class="font-body-md text-body-md">Autonomous Bot</span></div><span class="px-1.5 py-0.5 rounded bg-secondary/15 text-secondary font-label-numeric-sm text-label-numeric-sm leading-none border border-secondary/30">LIVE</span></a><a aria-current="page" class="group flex items-center justify-between px-space-sm py-2 rounded transition-colors bg-surface-container text-primary font-semibold border-l-2 border-primary" data-path="market-scanner" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">radar</span><span class="font-body-md text-body-md">Market Scanner</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-outline group-hover:text-on-surface-variant">240+</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="ai-decisions" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">psychology</span><span class="font-body-md text-body-md">AI Decisions</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-primary group-hover:text-primary-fixed">98.4%</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="active-trades" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">candlestick_chart</span><span class="font-body-md text-body-md">Active Trades</span></div><span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-numeric-sm text-label-numeric-sm leading-none text-on-surface">14</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="strategy-engine" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">tune</span><span class="font-body-md text-body-md">Strategy Engine</span></div></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="backtesting" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">history_toggle_off</span><span class="font-body-md text-body-md">Backtesting</span></div></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="risk-and-security" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">shield</span><span class="font-body-md text-body-md">Risk &amp; Security</span></div><span class="w-2 h-2 rounded-full bg-secondary"></span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="terminal-settings" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">settings</span><span class="font-body-md text-body-md">Settings</span></div></a></nav></div><div class="p-space-sm border-t border-outline-variant/30 flex flex-col gap-space-xs bg-surface-container-lowest"><div class="flex items-center justify-between font-label-numeric-sm text-label-numeric-sm text-outline"><span class="uppercase font-label-caps text-label-caps">SYSTEM LOAD</span><span>14.2%</span></div><div class="w-full bg-surface-container h-1 rounded-full overflow-hidden"><div class="bg-primary h-full w-[14.2%]"></div></div><div class="flex items-center justify-between pt-space-xs text-outline"><span class="font-label-caps text-label-caps uppercase">SHARD NODE: SG-09</span><span class="font-label-numeric-sm text-label-numeric-sm text-secondary">ONLINE</span></div></div></aside><div class="pl-64"><main class="w-full pt-14 min-h-screen bg-background text-on-surface"><div class="flex flex-col w-full">
+<div class="p-margin-edge flex flex-col gap-space-md">
+<div class="w-full bg-surface-container-low rounded p-space-md shadow-sm relative overflow-hidden">
+<div class="absolute -right-12 -top-12 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md relative z-10">
+<div class="flex items-start md:items-center gap-space-sm">
+<div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider">HARDWARE ENCLAVE SECURITY &amp; DETERMINISTIC GOVERNANCE ACTIVE</span>
+<span class="text-outline-variant font-label-numeric-sm text-label-numeric-sm">//</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-medium">Intel SGX-09 (Equinix NY4) DCAP Attested</span>
+<span class="px-space-xs py-space-2xs bg-secondary/15 text-secondary rounded font-label-caps text-label-caps">ZERO TRUST ACTIVE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Immutable execution boundary enforced at silicon layer. Algorithm model weights &amp; circuit rules signed via hardware isolated keys.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-start xl:self-center shrink-0">
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded">
+<span class="material-symbols-outlined text-secondary text-sm">memory</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-medium">TCB SVN: 0x0E</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container px-space-sm py-1.5 rounded">
+<span class="material-symbols-outlined text-primary text-sm">enhanced_encryption</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-medium">EPID: PASS</span>
+</div>
+<button class="flex items-center gap-space-xs bg-primary hover:bg-inverse-primary text-on-primary font-label-caps text-label-caps uppercase px-space-sm py-1.5 rounded transition-all duration-150" id="reverifyBtn" onclick="triggerAttestationCheck()">
+<span class="material-symbols-outlined text-sm">sync</span>
+<span>Verify Proof</span>
+</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-space-md">
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">CAPITAL AT RISK (VaR 99%)</span>
+<span class="material-symbols-outlined text-outline text-base">pie_chart</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-label-numeric-lg text-headline-lg text-on-surface font-semibold">$3,556.25</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">0.62% / 1.25% CAP</span>
+</div>
+<div class="mt-space-sm flex gap-1 w-full">
+<div class="h-1.5 rounded-sm bg-secondary w-[25%]"></div>
+<div class="h-1.5 rounded-sm bg-secondary w-[25%]"></div>
+<div class="h-1.5 rounded-sm bg-surface-container-highest w-[25%]"></div>
+<div class="h-1.5 rounded-sm bg-surface-container-highest w-[25%]"></div>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">DAILY PORTFOLIO FLOOR</span>
+<span class="material-symbols-outlined text-tertiary text-base">crisis_alert</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-label-numeric-lg text-headline-lg text-on-surface font-semibold">-$1,420.10</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface-variant">LIMIT: -$7,112.50</span>
+</div>
+<div class="mt-space-sm flex items-center justify-between">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Buffer Remainder:</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-medium">+80.03% Safe</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">HARDWARE SLICER LATENCY</span>
+<span class="material-symbols-outlined text-outline text-base">speed</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-label-numeric-lg text-headline-lg text-on-surface font-semibold">0.42 ms</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">NYSE L3 Sub-Tick</span>
+</div>
+<div class="mt-space-sm flex items-center justify-between">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Slip Guard:</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">&lt; 1.5 bps Cap</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-md rounded flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">ATTESTED MODEL CONVICTION</span>
+<span class="material-symbols-outlined text-primary text-base">psychology</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-space-xs">
+<span class="font-label-numeric-lg text-headline-lg text-primary font-semibold">91.4%</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface-variant">THRESHOLD: ≥82.0%</span>
+</div>
+<div class="mt-space-sm flex items-center justify-between">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Ensemble Quorum:</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-primary font-medium">8 of 9 Nodes Synced</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md">
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="bg-surface-container-low rounded p-space-md">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary">security</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Six Enclave Guardrails Matrix</h2>
+<p class="font-body-sm text-body-sm text-outline">Hardware-hardened zero-compromise deterministic circuit criteria</p>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-surface-container-high text-outline px-space-xs py-0.5 rounded">6/6 ONLINE</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between gap-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline font-semibold">GUARDRAIL 01</span>
+<span class="material-symbols-outlined text-secondary text-sm">lock</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary/15 text-secondary font-label-caps text-label-caps uppercase font-bold">ENFORCED</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Max Risk Per Execution</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hardware capped at 1.25% of absolute portfolio per order sliced. Kernel rejects unauthenticated overflow.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-lowest/50 px-space-xs py-1 rounded">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Current Peak: 0.84%</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">Ceiling: 1.25%</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between gap-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline font-semibold">GUARDRAIL 02</span>
+<span class="material-symbols-outlined text-tertiary text-sm">shield</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-tertiary-container/20 text-tertiary font-label-caps text-label-caps uppercase font-bold">ARMED VIA ENCLAVE</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Daily Loss Floor (-2.50%)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hard circuit trip at -$7,112.50 USD intraday net equity drawdown. Automatically halts routing microservices.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-lowest/50 px-space-xs py-1 rounded">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Current P&amp;L: -$1,420.10</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-tertiary">Tripping Floor: -$7,112.50</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between gap-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline font-semibold">GUARDRAIL 03</span>
+<span class="material-symbols-outlined text-primary text-sm">neurology</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary/15 text-secondary font-label-caps text-label-caps uppercase font-bold">ENFORCED</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Min AI Conviction (≥ 82.0%)</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Meta-ensemble voting consensus required across transformer models prior to ring-buffer injection.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-lowest/50 px-space-xs py-1 rounded">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Trailing Avg: 91.4%</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-primary">Floor: 82.00%</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between gap-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline font-semibold">GUARDRAIL 04</span>
+<span class="material-symbols-outlined text-secondary text-sm">reorder</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary/15 text-secondary font-label-caps text-label-caps uppercase font-bold">0 VIOLATIONS</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">L3 Book Spread Spike Anomaly</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Threshold set to 8.0 bps ceiling. Instant conversion to passive non-crossing defensive post-only routing.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-lowest/50 px-space-xs py-1 rounded">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Median Spread: 1.1 bps</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">Trigger: &gt;8.0 bps</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between gap-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline font-semibold">GUARDRAIL 05</span>
+<span class="material-symbols-outlined text-secondary text-sm">hub</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary/15 text-secondary font-label-caps text-label-caps uppercase font-bold">SAFE CLUSTERED</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Cross-Asset Beta Correlation</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Restricts simultaneous open exposure to max 2 asset classes with rolling 60m Pearson correlation &gt;0.85.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-lowest/50 px-space-xs py-1 rounded">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Active Pair Rho: 0.41</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">Max Rho: 0.85</span>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded flex flex-col justify-between gap-space-xs group hover:bg-surface-container-high transition-colors">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-caps text-label-caps text-outline font-semibold">GUARDRAIL 06</span>
+<span class="material-symbols-outlined text-secondary text-sm">flash_on</span>
+</div>
+<span class="px-space-xs py-space-2xs rounded bg-secondary/15 text-secondary font-label-caps text-label-caps uppercase font-bold">ARMED</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Sub-ms Slicer &amp; Anti-MEV</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deterministic order chunking with 1.5 bps maximum slippage allowance and randomized microsecond jitter.</p>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container-lowest/50 px-space-xs py-1 rounded">
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Worst Slippage: 0.32 bps</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">Hard Cap: 1.50 bps</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline">terminal</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Silicon Execution Verification Stream</h3>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+              SOCKET ESTABLISHED (TCP 8443)
+            </span>
+</div>
+<div class="bg-surface-container-lowest rounded p-space-sm font-label-numeric-sm text-label-numeric-sm text-outline flex flex-col gap-1 overflow-x-auto max-h-40">
+<div class="flex gap-space-xs"><span class="text-on-surface-variant">[14:32:01.002]</span> <span class="text-primary">SGX_DCAP:</span> Quote validation verified against Intel PCS endpoint: Revocation Status = OK.</div>
+<div class="flex gap-space-xs"><span class="text-on-surface-variant">[14:32:02.118]</span> <span class="text-secondary">POLICY_GUARD:</span> Order ID #8841-B BTC-USDT size 1.45 passed Guardrail #1 (Risk: 0.38%).</div>
+<div class="flex gap-space-xs"><span class="text-on-surface-variant">[14:32:03.904]</span> <span class="text-secondary">MEV_SHIELD:</span> Private mempool payload verified. Deterministic signature matches PCR1 hash.</div>
+<div class="flex gap-space-xs"><span class="text-on-surface-variant">[14:32:05.412]</span> <span class="text-on-surface">HEARTBEAT:</span> Ring 0 microkernel memory integrity check: 0 faults, 0 unmapped pages detected.</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<div class="bg-surface-container-low rounded p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary">fingerprint</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Attestation &amp; PCRs</h3>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-primary-container/20 text-primary px-space-xs py-0.5 rounded">TPM 2.0</span>
+</div>
+<div class="flex flex-col gap-space-xs bg-surface-container p-space-sm rounded">
+<span class="font-label-caps text-label-caps uppercase text-outline">ENCLAVE QUOTE SHA-256 DIGEST</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-primary break-all bg-surface-container-lowest p-1.5 rounded">0x88f2a490e8c71b4a908fbb28a7e4412c1998f82cb30129e0839eef89281a892b</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between bg-surface-container p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline">PCR0 // KERNEL BUILD</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-medium">v9.4-TPE-287 [LOCKED]</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">verified</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline">PCR1 // RISK RULES</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-medium">0x871a...992c [HASH MATCH]</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">verified</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-outline">PCR2 // PARETO WEIGHTS</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-medium">0xf401...bc21 [OPTIMAL]</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">verified</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="bg-surface-container p-space-xs rounded flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">MREnclave</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary truncate">0x9924eaf199</span>
+</div>
+<div class="bg-surface-container p-space-xs rounded flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">MRSigner</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary truncate">0x334bc001aa</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low rounded p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary">emergency</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Emergency Controls</h3>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-tertiary-container/20 text-tertiary px-space-xs py-0.5 rounded">RESTRICTED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct hardware interrupt triggers override autonomous microservices instantly.</p>
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface p-space-sm rounded flex items-center justify-between transition-colors" onclick="handleEmergencyAction('derisk')">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-tertiary text-base">compress</span>
+<div class="flex flex-col text-left">
+<span class="font-body-sm text-body-sm font-medium">De-Risk 50% Positions</span>
+<span class="font-label-caps text-label-caps text-outline uppercase">Halves market exposure</span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-primary">ONE-CLICK</span>
+</button>
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface p-space-sm rounded flex items-center justify-between transition-colors" onclick="handleEmergencyAction('freeze')">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-outline text-base">pause_circle</span>
+<div class="flex flex-col text-left">
+<span class="font-body-sm text-body-sm font-medium">Freeze Execution Engine</span>
+<span class="font-label-caps text-label-caps text-outline uppercase">Pauses algorithmic slicing</span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-outline">SIGKILL</span>
+</button>
+<button class="w-full bg-error-container/30 hover:bg-error-container/50 text-error p-space-sm rounded flex items-center justify-between transition-colors" onclick="handleEmergencyAction('panic')">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-error text-base">warning</span>
+<div class="flex flex-col text-left">
+<span class="font-body-sm text-body-sm font-semibold">Panic Liquidate All</span>
+<span class="font-label-caps text-label-caps text-error/80 uppercase">IOC Immediate Market Flush</span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps uppercase bg-error text-on-error px-space-xs py-0.5 rounded font-bold">2FA REQ</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-low rounded p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">COMPLIANCE &amp; FORENSICS</span>
+<span class="material-symbols-outlined text-outline text-base">folder_zip</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="flex-1 bg-surface-container hover:bg-surface-container-high text-on-surface p-space-xs rounded flex items-center justify-center gap-space-xs transition-colors" onclick="exportAudit('json')">
+<span class="material-symbols-outlined text-sm text-primary">data_object</span>
+<span class="font-label-numeric-sm text-label-numeric-sm">Audit JSON</span>
+</button>
+<button class="flex-1 bg-surface-container hover:bg-surface-container-high text-on-surface p-space-xs rounded flex items-center justify-center gap-space-xs transition-colors" onclick="exportAudit('pdf')">
+<span class="material-symbols-outlined text-sm text-secondary">verified</span>
+<span class="font-label-numeric-sm text-label-numeric-sm">Signed PDF</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function triggerAttestationCheck() {
+    const btn = document.getElementById('reverifyBtn');
+    if (!btn) return;
+    const originalText = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined text-sm animate-spin">progress_activity</span><span>Validating Quote...</span>';
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-sm text-secondary">check</span><span>SGX Attested</span>';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 2500);
+    }, 1200);
+  }
+
+  function handleEmergencyAction(type) {
+    if (type === 'panic') {
+      const confirmAuth = confirm("DANGER: This will emit immediate IOC market orders to fully liquidate all portfolio positions and purge current order queues. Require SGX Signature Authorization?");
+      if (confirmAuth) {
+        alert("Command routed to Equinix NY4 Intel SGX Enclave. Portfolio liquidation order execution confirmed.");
+      }
+    } else if (type === 'derisk') {
+      alert("Enclave execution: Slicing 50% passive TWAP exit orders across active portfolios.");
+    } else if (type === 'freeze') {
+      alert("Execution microservices paused. Memory rings flushed.");
+    }
+  }
+
+  function exportAudit(format) {
+    alert("Generating cryptographically attested " + format.toUpperCase() + " signed by MRSigner 0x334bc001aa...");
+  }
+</script></main></div></body></html>

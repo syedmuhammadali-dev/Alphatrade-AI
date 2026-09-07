@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-tint":"#c0c1ff","on-tertiary-fixed":"#410004","on-surface":"#dfe2ed","on-tertiary-container":"#5c0008","primary-fixed-dim":"#c0c1ff","inverse-primary":"#494bd6","on-tertiary-fixed-variant":"#930013","background":"#0f131b","surface-container-highest":"#31353d","outline-variant":"#464554","primary-container":"#8083ff","surface-container-low":"#181c23","on-secondary-fixed":"#002113","primary-fixed":"#e1e0ff","surface-container":"#1c2027","surface":"#0f131b","error-container":"#93000a","on-secondary":"#003824","on-secondary-container":"#00311f","secondary-fixed":"#6ffbbe","on-error":"#690005","tertiary-fixed-dim":"#ffb3ad","on-primary":"#1000a9","error":"#ffb4ab","on-primary-fixed":"#07006c","on-background":"#dfe2ed","on-primary-container":"#0d0096","on-surface-variant":"#c7c4d7","surface-container-high":"#262a32","inverse-surface":"#dfe2ed","primary":"#c0c1ff","inverse-on-surface":"#2d3038","tertiary-container":"#ff5451","on-secondary-fixed-variant":"#005236","surface-container-lowest":"#0a0e15","secondary-container":"#00a572","on-tertiary":"#68000a","tertiary":"#ffb3ad","tertiary-fixed":"#ffdad7","secondary-fixed-dim":"#4edea3","on-error-container":"#ffdad6","surface-bright":"#353941","on-primary-fixed-variant":"#2f2ebe","outline":"#908fa0","surface-variant":"#31353d","surface-dim":"#0f131b","secondary":"#4edea3"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-edge":"12px","space-2xl":"32px","space-xs":"4px","gutter-terminal":"8px","space-base":"16px","space-lg":"20px","space-md":"12px","space-2xs":"2px","space-sm":"8px","space-xl":"24px"},fontFamily:{"label-numeric-lg":["JetBrains Mono"],"headline-xl":["Geist"],"label-numeric-md":["JetBrains Mono"],"headline-md":["Geist"],"body-md":["Geist"],"headline-sm":["Geist"],"body-sm":["Geist"],"body-lg":["Geist"],"label-numeric-sm":["JetBrains Mono"],"label-caps":["Geist"],"headline-lg":["Geist"]},fontSize:{"label-numeric-lg":["18px",{lineHeight:"22px",letterSpacing:"-0.02em",fontWeight:"600"}],"headline-xl":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"600"}],"label-numeric-md":["13px",{lineHeight:"16px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-md":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-md":["13px",{lineHeight:"18px",fontWeight:"400"}],"headline-sm":["15px",{lineHeight:"20px",letterSpacing:"-0.005em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}],"body-lg":["14px",{lineHeight:"20px",fontWeight:"400"}],"label-numeric-sm":["11px",{lineHeight:"14px",letterSpacing:"0em",fontWeight:"400"}],"label-caps":["10px",{lineHeight:"12px",letterSpacing:"0.08em",fontWeight:"600"}],"headline-lg":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"600"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 left-0 right-0 h-14 z-50 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant/30 flex items-center justify-between px-margin-edge select-none"><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-sm"><div class="w-7 h-7 rounded bg-primary-container/20 border border-primary/40 flex items-center justify-center"><span class="material-symbols-outlined text-primary text-base">deployed_code</span></div><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-on-surface">AlphaTrade</span><span class="font-headline-sm text-headline-sm font-semibold tracking-tight text-primary">AI</span></div></div><span class="px-space-xs py-space-2xs bg-surface-container-high rounded font-label-caps text-label-caps uppercase text-outline tracking-wider border border-outline-variant/40">INSTITUTIONAL v4.2</span></div><div class="h-4 w-px bg-outline-variant/40 hidden xl:block"></div><div class="hidden xl:flex items-center gap-space-xs bg-surface-container-low px-space-sm py-space-xs rounded border border-outline-variant/20"><span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span><span class="font-label-caps text-label-caps uppercase text-outline">REGIME:</span><span class="font-label-numeric-sm text-label-numeric-sm text-tertiary">High Volatility Expansion</span></div><div class="h-4 w-px bg-outline-variant/40 hidden 2xl:block"></div><div class="hidden 2xl:flex items-center gap-space-xs text-outline font-label-numeric-sm text-label-numeric-sm"><span class="material-symbols-outlined text-sm text-outline">bolt</span><span>Execution:</span><span class="text-secondary font-medium">4.8ms</span><span class="text-outline-variant">|</span><span class="text-on-surface-variant">Binance &amp; Bybit L3 Connected</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-space-xs bg-secondary/10 border border-secondary/30 rounded"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span></span><span class="font-label-caps text-label-caps uppercase text-secondary font-bold tracking-wider">AUTONOMOUS ACTIVE</span></div><div class="hidden lg:flex items-center gap-space-xs px-space-sm py-space-xs bg-surface-container-low rounded border border-outline-variant/20 text-outline"><span class="material-symbols-outlined text-sm text-primary">lock</span><span class="font-label-caps text-label-caps text-on-surface-variant uppercase">AES-256 GCM</span></div><button class="flex items-center gap-space-xs px-space-sm py-1.5 bg-error-container/20 hover:bg-error-container/40 border border-error/50 hover:border-error text-error rounded transition-colors duration-150" type="button"><span class="material-symbols-outlined text-sm">gpp_bad</span><span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">EMERGENCY STOP</span></button><div class="h-5 w-px bg-outline-variant/40"></div><div class="flex items-center gap-space-sm pl-space-xs"><div class="flex flex-col items-end text-right"><span class="font-body-sm text-body-sm text-on-surface font-medium leading-none">Alpha-01</span><span class="font-label-caps text-label-caps uppercase text-primary font-semibold">PRO TIER</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/50" src="https://lh3.googleusercontent.com/aida/AEtjO1XamLGHgCc-SGuj1WwVHzjSr6IlDnqh5uth0csjUJkJsVzlcDiRfhfaUc29fmgdAydRyPOc6wl44vhqsnUkRyFD2BD2-VQ5MirSVWr5zeEdXNWqTczql0CAgCt1htMPZvoH1HzihbbV1YLyhc8pNiGNPvboRjf723iGmwOOeUoZ6xMuPnrfejzqHbVuSspGXd-Q3aSkCGduvURyMmQBr8HKpjhcnuO3tLbyIU5uLymwuYbkyrzP_lKrVfg"/></div></div></header><aside class="fixed left-0 top-14 bottom-0 w-64 bg-surface-container-lowest border-r border-outline-variant/30 z-40 flex flex-col justify-between select-none"><div class="flex flex-col py-space-sm"><div class="px-space-md py-space-xs"><span class="font-label-caps text-label-caps uppercase tracking-wider text-outline font-semibold">TERMINAL WORKSPACE</span></div><nav class="flex flex-col gap-0.5 px-space-xs mt-space-xs" data-active-classes="bg-surface-container text-primary font-semibold border-l-2 border-primary"><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="overview" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">dashboard</span><span class="font-body-md text-body-md">Overview</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-outline group-hover:text-on-surface-variant">01</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="autonomous-bot-control" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">memory</span><span class="font-body-md text-body-md">Autonomous Bot</span></div><span class="px-1.5 py-0.5 rounded bg-secondary/15 text-secondary font-label-numeric-sm text-label-numeric-sm leading-none border border-secondary/30">LIVE</span></a><a aria-current="page" class="group flex items-center justify-between px-space-sm py-2 rounded transition-colors bg-surface-container text-primary font-semibold border-l-2 border-primary" data-path="market-scanner" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">radar</span><span class="font-body-md text-body-md">Market Scanner</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-outline group-hover:text-on-surface-variant">240+</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="ai-decisions" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">psychology</span><span class="font-body-md text-body-md">AI Decisions</span></div><span class="font-label-numeric-sm text-label-numeric-sm text-primary group-hover:text-primary-fixed">98.4%</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="active-trades" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">candlestick_chart</span><span class="font-body-md text-body-md">Active Trades</span></div><span class="px-1.5 py-0.5 rounded bg-surface-container-high font-label-numeric-sm text-label-numeric-sm leading-none text-on-surface">14</span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="strategy-engine" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">tune</span><span class="font-body-md text-body-md">Strategy Engine</span></div></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="backtesting" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">history_toggle_off</span><span class="font-body-md text-body-md">Backtesting</span></div></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="risk-and-security" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">shield</span><span class="font-body-md text-body-md">Risk &amp; Security</span></div><span class="w-2 h-2 rounded-full bg-secondary"></span></a><a class="group flex items-center justify-between px-space-sm py-2 rounded text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" data-path="terminal-settings" href="#"><div class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-lg text-outline group-hover:text-on-surface">settings</span><span class="font-body-md text-body-md">Settings</span></div></a></nav></div><div class="p-space-sm border-t border-outline-variant/30 flex flex-col gap-space-xs bg-surface-container-lowest"><div class="flex items-center justify-between font-label-numeric-sm text-label-numeric-sm text-outline"><span class="uppercase font-label-caps text-label-caps">SYSTEM LOAD</span><span>14.2%</span></div><div class="w-full bg-surface-container h-1 rounded-full overflow-hidden"><div class="bg-primary h-full w-[14.2%]"></div></div><div class="flex items-center justify-between pt-space-xs text-outline"><span class="font-label-caps text-label-caps uppercase">SHARD NODE: SG-09</span><span class="font-label-numeric-sm text-label-numeric-sm text-secondary">ONLINE</span></div></div></aside><div class="pl-64"><main class="w-full pt-14 min-h-screen bg-background text-on-surface"><div class="flex flex-col w-full">
+<!-- Subtle Ambient Top Halo -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-24 left-1/4 w-96 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-24 right-1/4 w-96 h-48 bg-secondary/10 rounded-full blur-3xl pointer-events-none"></div>
+<!-- MAIN TERMINAL CONTENT CONTAINER -->
+<div class="w-full px-margin-edge py-space-md flex flex-col gap-space-sm">
+<!-- ========================================================================= -->
+<!-- 1. TOP LIVE STATUS BANNER (INSTITUTIONAL METRIC HUB)                     -->
+<!-- ========================================================================= -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md shadow-md flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<!-- Left Meta Cluster -->
+<div class="flex flex-wrap items-center gap-space-md">
+<!-- Status Pill -->
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-1 rounded">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+</span>
+<span class="font-label-caps text-label-caps uppercase font-bold text-secondary tracking-wider">LIVE RUNNING</span>
+<span class="text-outline-variant font-label-numeric-sm text-label-numeric-sm">/</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-primary font-medium">ATT-OK</span>
+</div>
+<!-- Instance Meta -->
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-numeric-md text-label-numeric-md text-on-surface font-semibold">#INST-BTC-2024-8841</span>
+<span class="px-1.5 py-0.5 bg-surface-container rounded font-label-caps text-label-caps uppercase text-on-surface-variant">ALPHA-V9.4_PROD</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">TRIAL #287</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline font-label-numeric-sm text-label-numeric-sm mt-0.5">
+<span class="material-symbols-outlined text-sm text-primary">verified_user</span>
+<span>SGX-09 (DCAP Attested • PCR0/PCR1/PCR2 Verified)</span>
+<span class="text-outline-variant">•</span>
+<span class="text-secondary font-medium">0.38ms Loop</span>
+</div>
+</div>
+</div>
+<!-- Center Ticker Group -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm xl:gap-space-lg bg-surface-container-lowest p-space-sm rounded">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">INSTRUMENT</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">BTC/USDT</span>
+<span class="font-label-caps text-label-caps bg-primary/20 text-primary px-1 rounded">5.0X</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">ENTRY FILLED</span>
+<span class="font-label-numeric-md text-label-numeric-md text-on-surface mt-0.5">$64,785.20</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">CURRENT MARK</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-numeric-md text-label-numeric-md text-secondary font-semibold" id="mark-price">$64,892.40</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary bg-secondary/15 px-1 rounded">+0.17%</span>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase text-outline">REGIME / NOTIONAL</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface-variant">Bullish Exp</span>
+<span class="text-outline">•</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-medium">3.8589 BTC</span>
+</div>
+</div>
+</div>
+<!-- Right: Real-time P&L Panel -->
+<div class="flex items-center gap-space-md justify-between xl:justify-end bg-surface-container-high px-space-md py-space-sm rounded">
+<div class="flex flex-col text-left xl:text-right">
+<div class="flex items-center gap-space-xs xl:justify-end">
+<span class="font-label-caps text-label-caps uppercase text-outline">UNREALIZED P&amp;L</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+</div>
+<div class="flex items-baseline gap-space-xs xl:justify-end">
+<span class="font-label-numeric-lg text-label-numeric-lg text-secondary font-bold" id="pnl-value">+$413.50</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-medium">(+0.83%)</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Margin: $50,000.00 / Cross</span>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- 2. MAIN COCKPIT SPLIT: DYNAMIC LADDER & SMART ORDER ROUTER               -->
+<!-- ========================================================================= -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-sm w-full">
+<!-- Left: Take-Profit / Stop-Loss Execution Ladder (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-lg p-space-md shadow-md flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-lg">stacked_line_chart</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Execution Progression Ladder</span>
+<span class="font-label-caps text-label-caps bg-surface-container text-outline uppercase px-1.5 py-0.5 rounded">Hardware Enclave Armed</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline font-label-numeric-sm text-label-numeric-sm">
+<span class="material-symbols-outlined text-sm text-secondary">update</span>
+<span>Trailing: 0.65x ATR Standby</span>
+</div>
+</div>
+<!-- Progress Ladder Track Visualizer -->
+<div class="flex flex-col gap-space-xs bg-surface-container-lowest p-space-md rounded-lg">
+<!-- Ladder Horizontal Progress Segment Bar -->
+<div class="w-full flex items-center justify-between text-outline font-label-caps text-label-caps uppercase pb-1">
+<span class="text-tertiary">STOP CAP (-1.38%)</span>
+<span class="text-on-surface">LOCKED ENTRY</span>
+<span class="text-secondary font-bold">CURRENT MARK ($64,892.40)</span>
+<span class="text-primary">TP-1 (+2.03%)</span>
+<span class="text-primary-fixed">TP-2 (+4.04%)</span>
+<span class="text-primary-fixed">TP-3 (+6.51%)</span>
+</div>
+<!-- Segmented Tracker Bar -->
+<div class="relative w-full h-3 bg-surface-container-high rounded-full overflow-hidden flex gap-0.5">
+<!-- Stop Loss Zone -->
+<div class="w-[18%] h-full bg-tertiary-container/40 relative">
+<div class="absolute inset-0 bg-tertiary/20 animate-pulse"></div>
+</div>
+<!-- Entry to Current Zone -->
+<div class="w-[12%] h-full bg-secondary-container relative">
+<div class="absolute inset-0 bg-secondary/80"></div>
+</div>
+<!-- Current to TP1 Zone (Pending) -->
+<div class="w-[25%] h-full bg-surface-container"></div>
+<!-- TP1 to TP2 Zone -->
+<div class="w-[25%] h-full bg-surface-container"></div>
+<!-- TP2 to TP3 Zone -->
+<div class="w-[20%] h-full bg-surface-container"></div>
+</div>
+<!-- Discrete Target Nodes Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-space-xs pt-space-sm mt-space-xs">
+<!-- Stop Node -->
+<div class="p-space-xs bg-surface-container rounded flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-tertiary font-bold">SL (ARMED)</span>
+<span class="material-symbols-outlined text-tertiary text-xs">lock</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-semibold mt-1">$63,890.00</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-tertiary mt-0.5">-$3,456.00</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">100% Notional Out</span>
+</div>
+<!-- Entry Node -->
+<div class="p-space-xs bg-surface-container-high rounded flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">ENTRY FILL</span>
+<span class="material-symbols-outlined text-secondary text-xs">done_all</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-semibold mt-1">$64,785.20</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary mt-0.5">FILLED</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">$250,000 Notional</span>
+</div>
+<!-- TP1 Node -->
+<div class="p-space-xs bg-surface-container rounded flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary font-bold">TP 1 (40%)</span>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/10 px-1 rounded">LIMIT PLACED</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-semibold mt-1">$66,100.00</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary mt-0.5">+$1,970.00</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">$100k Tranche</span>
+</div>
+<!-- TP2 Node -->
+<div class="p-space-xs bg-surface-container rounded flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary font-bold">TP 2 (35%)</span>
+<span class="font-label-caps text-label-caps text-outline">STANDBY</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-semibold mt-1">$67,400.00</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary mt-0.5">+$3,482.00</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">$87.5k Tranche</span>
+</div>
+<!-- TP3 Node -->
+<div class="p-space-xs bg-surface-container rounded flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary font-bold">TP 3 (25%)</span>
+<span class="font-label-caps text-label-caps text-outline">RUNNER</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface font-semibold mt-1">$69,000.00</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary mt-0.5">+$4,031.00</span>
+<span class="font-label-caps text-label-caps text-outline mt-0.5">$62.5k Runner</span>
+</div>
+</div>
+</div>
+<!-- Micro Volatility Trailing Policy Notice -->
+<div class="bg-surface-container-lowest px-space-sm py-space-xs rounded flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-sm text-primary">auto_mode</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Auto Trailing Invalidation: Triggers immediately after TP1 fill @ $66,100. Locks +0.50% profit.</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary">ARMED</span>
+</div>
+</div>
+<!-- Right: Multi-Venue Slicing Progress (Smart Order Router) (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-low rounded-lg p-space-md shadow-md flex flex-col justify-between gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-lg">hub</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Smart Order Slicing</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary bg-secondary/15 px-2 py-0.5 rounded font-medium">100% COMPLETE • 1.42s</span>
+</div>
+<!-- Venue Slices Visual Breakdown -->
+<div class="flex flex-col gap-space-sm">
+<!-- Binance Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Binance Futures L3</span>
+<span class="font-label-caps text-label-caps bg-surface-container text-outline px-1 rounded">60% SHARE</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-medium">12 / 12 Slices</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs text-outline font-label-numeric-sm text-label-numeric-sm mt-1">
+<div>
+<span class="font-label-caps text-label-caps block">FILL NOTIONAL</span>
+<span class="text-on-surface font-semibold">$150,000.00</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps block">AVG VWAP</span>
+<span class="text-on-surface font-semibold">$64,782.10</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps block">EXEC SLIPPAGE</span>
+<span class="text-secondary font-semibold">+0.1 bps (Passive)</span>
+</div>
+</div>
+</div>
+<!-- OKX Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">OKX Perpetuals L3</span>
+<span class="font-label-caps text-label-caps bg-surface-container text-outline px-1 rounded">40% SHARE</span>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-medium">8 / 8 Slices</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs text-outline font-label-numeric-sm text-label-numeric-sm mt-1">
+<div>
+<span class="font-label-caps text-label-caps block">FILL NOTIONAL</span>
+<span class="text-on-surface font-semibold">$100,000.00</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps block">AVG VWAP</span>
+<span class="text-on-surface font-semibold">$64,789.80</span>
+</div>
+<div>
+<span class="font-label-caps text-label-caps block">EXEC SLIPPAGE</span>
+<span class="text-secondary font-semibold">+0.2 bps (Passive)</span>
+</div>
+</div>
+</div>
+<!-- Aggressive Taker Savings Summary -->
+<div class="flex items-center justify-between bg-surface-container px-space-sm py-space-xs rounded font-label-numeric-sm text-label-numeric-sm">
+<span class="text-outline">Smart Router Alpha Savings:</span>
+<span class="text-secondary font-semibold">+$182.40 USD saved vs Taker Benchmark</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- 3. REAL-TIME MICROSTRUCTURE, ENCLAVE HEALTH & L3 DEFENSE TELEMETRY        -->
+<!-- ========================================================================= -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-sm w-full">
+<!-- Telemetry Card 1: Top of Book Spread -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-sm flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">L3 Top-of-Book Spread</span>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/15 px-1.5 py-0.5 rounded">NOMINAL</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-label-numeric-lg text-label-numeric-lg text-on-surface font-bold">0.8 bps</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Binance / OKX 1.1 bps</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full w-[12%]"></div>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Tripwire threshold: 8.0 bps max</span>
+</div>
+<!-- Telemetry Card 2: Guardrail #4 Spread Breach -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-sm flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Guardrail #4: Spread Anomaly</span>
+<span class="material-symbols-outlined text-secondary text-base">verified</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-label-numeric-lg text-label-numeric-lg text-secondary font-bold">ARMED • 0 Violations</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full w-[100%]"></div>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Slippage tripwire circuit active</span>
+</div>
+<!-- Telemetry Card 3: Guardrail #2 NAV Drawdown Floor -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-sm flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Guardrail #2: NAV Floor</span>
+<span class="font-label-caps text-label-caps text-primary bg-primary/20 px-1.5 py-0.5 rounded">-2.5% MAX</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-label-numeric-lg text-label-numeric-lg text-on-surface font-bold">$284,500</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-secondary font-medium">NAV Secure</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full w-[4%]"></div>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Emergency close if NAV falls below $277,387</span>
+</div>
+<!-- Telemetry Card 4: Enclave Intel SGX Logic Heartbeat -->
+<div class="bg-surface-container-low rounded-lg p-space-md shadow-sm flex flex-col justify-between gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase text-outline">Enclave Compute Heartbeat</span>
+<span class="font-label-caps text-label-caps text-secondary bg-secondary/15 px-1.5 py-0.5 rounded">60 HZ REALTIME</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-1">
+<span class="font-label-numeric-lg text-label-numeric-lg text-secondary font-bold">0.04ms</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">Eval cycle latency</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full w-[100%] animate-pulse"></div>
+</div>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">OKX Auto-Hedge trigger standby</span>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- 4. LIVE EXECUTION LOGS & REAL-TIME EVENT STREAM                          -->
+<!-- ========================================================================= -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-base">terminal</span>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Execution Log &amp; Attestation Telemetry Stream</span>
+<span class="font-label-caps text-label-caps bg-secondary/15 text-secondary px-1.5 py-0.5 rounded">SOCKET CONNECTED (WSS)</span>
+</div>
+<div class="flex items-center gap-space-xs text-outline font-label-numeric-sm text-label-numeric-sm">
+<span>Buffer: 1,024 lines</span>
+<span>•</span>
+<button class="hover:text-on-surface underline" id="clear-log-btn">Clear View</button>
+</div>
+</div>
+<!-- Terminal Log Console Box -->
+<div class="w-full h-36 overflow-y-auto bg-surface-container-lowest p-space-sm rounded font-label-numeric-sm text-label-numeric-sm flex flex-col gap-1 text-on-surface-variant select-text" id="terminal-log">
+<div class="flex items-center gap-space-sm">
+<span class="text-outline">[14:32:01.002]</span>
+<span class="text-primary font-semibold">[SGX-ENCLAVE]</span>
+<span>Quote generation passed: MRENCLAVE=3f8a9...b72e verified via Azure Attestation Service.</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-outline">[14:32:01.120]</span>
+<span class="text-secondary font-semibold">[ORDER-ROUTER]</span>
+<span>Position dispatch initiate: $250,000 notional (3.8589 BTC) via Split VWAP.</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-outline">[14:32:01.450]</span>
+<span class="text-secondary font-semibold">[BINANCE-L3]</span>
+<span>Slice #01-#12 filled @ $64,782.10 average. Passive Maker allocation 100%.</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-outline">[14:32:02.420]</span>
+<span class="text-secondary font-semibold">[OKX-L3]</span>
+<span>Slice #01-#08 filled @ $64,789.80 average. Passive Maker allocation 100%.</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-outline">[14:32:02.424]</span>
+<span class="text-primary font-semibold">[RISK-ENGINE]</span>
+<span>All 20 micro-slices filled. Cumulative slippage delta: 0.00 bps. Guardrails locked.</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-outline">[14:32:02.500]</span>
+<span class="text-secondary font-semibold">[LADDER-ARM]</span>
+<span>TP-1 Limit Placed @ $66,100.00. Invalidation Stop verified in hardware registers @ $63,890.00.</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="text-outline">[14:32:08.910]</span>
+<span class="text-primary font-semibold">[HEARTBEAT]</span>
+<span class="text-secondary">Mark: $64,892.40 | Enclave state: NOMINAL | Drawdown budget: 100% intact</span>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- 5. CRITICAL INTERACTIVE EMERGENCY & COMMAND CONTROL PANEL                -->
+<!-- ========================================================================= -->
+<div class="w-full bg-surface-container-low rounded-lg p-space-md shadow-xl flex flex-col md:flex-row items-center justify-between gap-space-md">
+<!-- Left: Informative Enclave & Audit Links -->
+<div class="flex flex-wrap items-center gap-space-sm w-full md:w-auto">
+<button class="flex items-center gap-space-xs px-space-sm py-2 bg-surface-container hover:bg-surface-container-high rounded text-primary transition-colors" id="view-attestation-btn" type="button">
+<span class="material-symbols-outlined text-sm">enhanced_encryption</span>
+<span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">SGX Attestation Proof</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-sm py-2 bg-surface-container hover:bg-surface-container-high rounded text-on-surface-variant hover:text-on-surface transition-colors" id="export-telemetry-btn" type="button">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">Export Telemetry JSON</span>
+</button>
+<!-- Slicing Pause Toggle -->
+<div class="flex items-center gap-space-xs px-space-sm py-1.5 bg-surface-container-lowest rounded">
+<span class="font-label-caps text-label-caps uppercase text-outline">AUTO-ROUTER:</span>
+<span class="font-label-caps text-label-caps uppercase text-secondary font-bold" id="router-status-badge">UNLOCKED</span>
+</div>
+</div>
+<!-- Right: Destructive & De-Risking Actions -->
+<div class="flex flex-wrap items-center justify-end gap-space-sm w-full md:w-auto">
+<!-- Pause/Freeze Slicing Button -->
+<button class="flex items-center gap-space-xs px-space-sm py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded transition-colors" id="freeze-orders-btn" type="button">
+<span class="material-symbols-outlined text-sm text-outline">pause_circle</span>
+<span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">Pause Slicing</span>
+</button>
+<!-- De-Risk 50% Notional -->
+<button class="flex items-center gap-space-xs px-space-base py-2 bg-tertiary/20 hover:bg-tertiary/30 text-tertiary rounded transition-colors" id="derisk-btn" type="button">
+<span class="material-symbols-outlined text-sm">trending_down</span>
+<span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">De-Risk 50% Notional</span>
+</button>
+<!-- Panic Close / IOC Emergency Button -->
+<button class="flex items-center gap-space-xs px-space-base py-2 bg-error-container/30 hover:bg-error-container/50 text-error rounded shadow-md transition-colors" id="panic-close-btn" type="button">
+<span class="material-symbols-outlined text-sm">gpp_bad</span>
+<span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">PANIC CLOSE (IOC IMMED)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL: CRYPTOGRAPHIC ENCLAVE ATTESTATION PROOF                            -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-md hidden p-space-md" id="attestation-modal">
+<div class="bg-surface-container-low rounded-lg max-w-xl w-full p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded bg-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Intel SGX Attestation Proof</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-outline">DCAP Protocol • ECDSA-256 Auth</span>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface" id="close-attestation-modal">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest p-space-sm rounded font-label-numeric-sm text-label-numeric-sm text-on-surface-variant flex flex-col gap-space-xs">
+<div><span class="text-outline">MRENCLAVE:</span> e2f8832a11b9338f0d5718a24c1bc8a144e39</div>
+<div><span class="text-outline">MRSIGNER:</span> b02431cf941a54b9d5c3f878f44d82b017bca</div>
+<div><span class="text-outline">ISVSVN:</span> 0x0004 • Product ID: 0x0001</div>
+<div><span class="text-outline">Hardware Quorum:</span> Azure Confidential DC4ds_v3</div>
+<div><span class="text-outline">Report Data Hash:</span> 7f98a87b55fca1209bcae99120bc7102</div>
+</div>
+<div class="flex items-center justify-between text-secondary font-label-caps text-label-caps uppercase">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+          Remote Verifier Certificate Valid (Trust anchor root: Intel SGX TCB)
+        </span>
+</div>
+<div class="flex justify-end">
+<button class="px-space-base py-1.5 bg-primary text-on-primary font-label-caps text-label-caps uppercase font-bold rounded" id="dismiss-attestation-modal">
+          Dismiss
+        </button>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- MODAL: EMERGENCY PANIC CLOSE CONFIRMATION                                 -->
+<!-- ========================================================================= -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-background/85 backdrop-blur-md hidden p-space-md" id="panic-modal">
+<div class="bg-surface-container-low rounded-lg max-w-lg w-full p-space-lg shadow-2xl flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm text-error">
+<div class="w-10 h-10 rounded bg-error-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">warning</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-error">CONFIRM IMMEDIATE IOC LIQUIDATION</span>
+<span class="font-label-numeric-sm text-label-numeric-sm text-on-surface-variant">Autonomous execution will be halted instantly</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+        Are you sure you want to execute an immediate Immediate-Or-Cancel (IOC) market liquidation for 
+        <strong class="text-on-surface font-semibold">3.8589 BTC ($250,000 Notional)</strong> across Binance and OKX? 
+        All profit-taking ladder tranches and invalidation stops will be canceled.
+      </p>
+<div class="bg-surface-container-lowest p-space-sm rounded font-label-numeric-sm text-label-numeric-sm text-tertiary">
+        Estimated slippage on immediate taker fill: ~1.2 - 2.8 bps ($30 - $70 USD).
+      </div>
+<div class="flex items-center justify-end gap-space-sm pt-space-xs">
+<button class="px-space-base py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-caps text-label-caps uppercase font-semibold rounded" id="cancel-panic-btn" type="button">
+          Abort Action
+        </button>
+<button class="px-space-base py-2 bg-error text-on-error font-label-caps text-label-caps uppercase font-bold rounded hover:opacity-90" id="confirm-panic-btn" type="button">
+          Confirm Panic Close
+        </button>
+</div>
+</div>
+</div>
+<!-- Client-side Interactive Behaviors -->
+<script>
+    (function() {
+      // Dynamic simulated mark price micro-flicker
+      let basePrice = 64892.40;
+      const markPriceEl = document.getElementById('mark-price');
+      const pnlValueEl = document.getElementById('pnl-value');
+      const logContainer = document.getElementById('terminal-log');
+
+      setInterval(() => {
+        if (!markPriceEl || !pnlValueEl) return;
+        const delta = (Math.random() - 0.48) * 3.2;
+        basePrice += delta;
+        const formattedPrice = '$' + basePrice.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        markPriceEl.innerText = formattedPrice;
+
+        // Update PnL
+        const pnl = (basePrice - 64785.20) * 3.8589;
+        const pnlFormatted = (pnl >= 0 ? '+' : '-') + '$' + Math.abs(pnl).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        pnlValueEl.innerText = pnlFormatted;
+      }, 1200);
+
+      // Modal Triggers: Attestation
+      const attestationModal = document.getElementById('attestation-modal');
+      const viewAttestationBtn = document.getElementById('view-attestation-btn');
+      const closeAttestationBtn = document.getElementById('close-attestation-modal');
+      const dismissAttestationBtn = document.getElementById('dismiss-attestation-modal');
+
+      if (viewAttestationBtn && attestationModal) {
+        viewAttestationBtn.addEventListener('click', () => attestationModal.classList.remove('hidden'));
+      }
+      if (closeAttestationBtn && attestationModal) {
+        closeAttestationBtn.addEventListener('click', () => attestationModal.classList.add('hidden'));
+      }
+      if (dismissAttestationBtn && attestationModal) {
+        dismissAttestationBtn.addEventListener('click', () => attestationModal.classList.add('hidden'));
+      }
+
+      // Modal Triggers: Panic Close
+      const panicModal = document.getElementById('panic-modal');
+      const panicCloseBtn = document.getElementById('panic-close-btn');
+      const cancelPanicBtn = document.getElementById('cancel-panic-btn');
+      const confirmPanicBtn = document.getElementById('confirm-panic-btn');
+
+      if (panicCloseBtn && panicModal) {
+        panicCloseBtn.addEventListener('click', () => panicModal.classList.remove('hidden'));
+      }
+      if (cancelPanicBtn && panicModal) {
+        cancelPanicBtn.addEventListener('click', () => panicModal.classList.add('hidden'));
+      }
+      if (confirmPanicBtn && panicModal) {
+        confirmPanicBtn.addEventListener('click', () => {
+          panicModal.classList.add('hidden');
+          appendLogLine('[CRITICAL-OVERRIDE] Manual IOC Panic Close invoked by operator Alpha-01. Liquidating 3.8589 BTC.');
+          alert('Emergency IOC order transmitted to Binance and OKX. Bot transitioned to SHUTDOWN.');
+        });
+      }
+
+      // De-Risk 50% Button
+      const deriskBtn = document.getElementById('derisk-btn');
+      if (deriskBtn) {
+        deriskBtn.addEventListener('click', () => {
+          appendLogLine('[DE-RISK] 50% Notional reduction order placed. Closing 1.9294 BTC via Passive TWAP.');
+        });
+      }
+
+      // Pause/Freeze Toggle
+      const freezeBtn = document.getElementById('freeze-orders-btn');
+      const routerBadge = document.getElementById('router-status-badge');
+      let isFrozen = false;
+      if (freezeBtn && routerBadge) {
+        freezeBtn.addEventListener('click', () => {
+          isFrozen = !isFrozen;
+          if (isFrozen) {
+            freezeBtn.innerHTML = '<span class="material-symbols-outlined text-sm text-secondary">play_circle</span><span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">Resume Slicing</span>';
+            routerBadge.innerText = 'PAUSED';
+            routerBadge.className = 'font-label-caps text-label-caps uppercase text-tertiary font-bold';
+            appendLogLine('[ROUTER-STATE] Smart order router paused by operator. Pending limit orders frozen.');
+          } else {
+            freezeBtn.innerHTML = '<span class="material-symbols-outlined text-sm text-outline">pause_circle</span><span class="font-label-caps text-label-caps uppercase font-bold tracking-wider">Pause Slicing</span>';
+            routerBadge.innerText = 'UNLOCKED';
+            routerBadge.className = 'font-label-caps text-label-caps uppercase text-secondary font-bold';
+            appendLogLine('[ROUTER-STATE] Smart order router resumed. Active order queue unfrozen.');
+          }
+        });
+      }
+
+      // Export Telemetry
+      const exportBtn = document.getElementById('export-telemetry-btn');
+      if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+          const telemetryData = {
+            instanceId: "#INST-BTC-2024-8841",
+            enclave: "Intel SGX SGX-09",
+            entryPrice: 64785.20,
+            markPrice: basePrice,
+            positionSizeNotional: 250000,
+            slicesFilled: 20,
+            venues: ["Binance L3", "OKX L3"],
+            timestamp: new Date().toISOString()
+          };
+          const blob = new Blob([JSON.stringify(telemetryData, null, 2)], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'telemetry-#INST-BTC-2024-8841.json';
+          a.click();
+          URL.revokeObjectURL(url);
+          appendLogLine('[TELEMETRY] Snapshot JSON exported successfully.');
+        });
+      }
+
+      // Clear Log Action
+      const clearLogBtn = document.getElementById('clear-log-btn');
+      if (clearLogBtn && logContainer) {
+        clearLogBtn.addEventListener('click', () => {
+          logContainer.innerHTML = '<div class="text-outline font-label-numeric-sm">[Console cleared by operator]</div>';
+        });
+      }
+
+      function appendLogLine(msg) {
+        if (!logContainer) return;
+        const now = new Date();
+        const timeStr = `[${now.toTimeString().split(' ')[0]}.${String(now.getMilliseconds()).padStart(3, '0')}]`;
+        const div = document.createElement('div');
+        div.className = 'flex items-center gap-space-sm';
+        div.innerHTML = `<span class="text-outline">${timeStr}</span> <span class="text-on-surface">${msg}</span>`;
+        logContainer.appendChild(div);
+        logContainer.scrollTop = logContainer.scrollHeight;
+      }
+    })();
+  </script>
+</div></main></div></body></html>

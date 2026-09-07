@@ -1,0 +1,170 @@
+{
+  "$schema": "https://alphatrade.ai/schemas/v1/incident-audit-telemetry.json",
+  "audit_metadata": {
+    "bundle_version": "1.4.0",
+    "export_timestamp_utc": "2024-10-24T14:06:12.842Z",
+    "export_node": "us-east-equinix-ny4-hsm-09",
+    "compliance_archive_id": "ARCH-20241024-INC0941-SGX",
+    "classification": "CONFIDENTIAL // RESTRICTED INSTITUTIONAL RISK AUDIT"
+  },
+  "incident_record": {
+    "incident_id": "#INC-2024-0941",
+    "severity": "SEV-2",
+    "status": "AUTO_RESOLVED_MITIGATED",
+    "event_type": "L3_ORDERBOOK_LIQUIDITY_SHOCK_SPREAD_EXPANSION",
+    "rule_triggered": "GUARDRAIL_4_MAX_SPREAD_TOLERANCE_BPS",
+    "execution_kernel": "Alpha-V9.4_PROD",
+    "active_trial_weights": "Trial #287 (Bayesian Pareto-Optimal)",
+    "enclave_halt_duration_ms": 13906,
+    "time_window": {
+      "detection_utc": "2024-10-24T14:05:01.014Z",
+      "interception_utc": "2024-10-24T14:05:01.018Z",
+      "router_defensive_utc": "2024-10-24T14:05:01.022Z",
+      "recovery_criterion_met_utc": "2024-10-24T14:05:14.920Z",
+      "execution_resumed_utc": "2024-10-24T14:05:15.002Z"
+    }
+  },
+  "cryptographic_attestation": {
+    "tee_enclave_vendor": "Intel SGX / Fortanix Runtime v3.8",
+    "quote_format": "ECDSA_P256_WITH_COLLATERAL",
+    "enclave_quote_sha256": "0x88f2a490e8c71b4a908fbb28a7e4412c1998f82cb30129e0839eef89281a892b",
+    "quote_status": "OK_ATTESTED",
+    "pcr_registers": {
+      "PCR0_KERNEL": "d2a09f3e498c89419fb25ef381b0a88e9981f4a9b75294318c4e09f5bc302ae1",
+      "PCR1_RISK_CONSTRAINTS": "893c52a098eb017e2938ca82bf7612c300891409f984ca3b429188e734181a99",
+      "PCR2_RUNTIME_WEIGHTS_287": "518fbca7920364e102f90a98b0451e9488a0e83bf61c1a938e30b14c3309a471"
+    },
+    "zero_downtime_hot_swap_id": "BUILD-v9.4-TPE-287-HOTSWAP-01"
+  },
+  "quantitative_impact_assessment": {
+    "capital_preserved_usd": 4180.00,
+    "realized_slippage_loss_usd": 0.00,
+    "adverse_slippage_prevented_bps": 12.2,
+    "peak_spread_bps": 12.4,
+    "nominal_spread_ceiling_bps": 8.0,
+    "recovery_target_spread_bps": 3.0,
+    "recovery_target_consecutive_ticks": 500,
+    "post_recovery_mean_spread_bps": 1.1,
+    "enclave_decision_latency_ms": 0.04,
+    "dropped_orders_count": 0,
+    "diverted_orders_count": 2
+  },
+  "active_strategy_vector_during_event": {
+    "trial_identifier": "Trial #287",
+    "parameters": {
+      "atr_volatility_multiplier": 2.35,
+      "momentum_lookback_bars": 21,
+      "orderbook_imbalance_skew": 0.72,
+      "hard_invalidation_offset_pct": -0.65
+    },
+    "risk_limits": {
+      "daily_hard_drawdown_cutoff_pct": -2.50,
+      "daily_hard_drawdown_amount_usd": -7112.50,
+      "max_nav_allocated_usd": 284500.00,
+      "min_ai_confidence_threshold_pct": 82.0,
+      "max_concurrent_slots": 8,
+      "active_concurrent_slots": 6
+    }
+  },
+  "multi_venue_microstructure_telemetry": [
+    {
+      "venue": "BINANCE_FUTURES_L3",
+      "pair": "BTCUSDT.P",
+      "pre_event_spread_bps": 0.8,
+      "peak_spread_bps": 12.4,
+      "l3_depth_contraction_pct": -74.5,
+      "intercepted_order": {
+        "order_id": "ORD-TWAP-BTC-0941A",
+        "intended_action": "BUY_IOC_TAKER_SLICE",
+        "size_usd": 25000.00,
+        "diverted_action": "PASSIVE_MAKER_DEFENSIVE_REST_PEG",
+        "defensive_peg_price": 65115.00,
+        "resumed_fill_price": 65718.40,
+        "effective_slippage_bps": 0.2,
+        "attested_savings_usd": 2840.00
+      }
+    },
+    {
+      "venue": "OKX_PERPETUAL_L3",
+      "pair": "ETHUSDT.P",
+      "pre_event_spread_bps": 1.1,
+      "peak_spread_bps": 11.8,
+      "l3_depth_contraction_pct": -68.1,
+      "intercepted_order": {
+        "order_id": "ORD-TWAP-ETH-0941B",
+        "intended_action": "BUY_IOC_TAKER_SLICE",
+        "size_usd": 15000.00,
+        "diverted_action": "PASSIVE_MAKER_DEFENSIVE_REST_PEG",
+        "defensive_peg_price": 3442.10,
+        "resumed_fill_price": 3448.20,
+        "effective_slippage_bps": 0.3,
+        "attested_savings_usd": 1340.00
+      }
+    },
+    {
+      "venue": "BYBIT_LINEAR_L3",
+      "pair": "SOLUSDT.P",
+      "pre_event_spread_bps": 1.4,
+      "peak_spread_bps": 7.2,
+      "l3_depth_contraction_pct": -28.4,
+      "intercepted_order": null,
+      "status": "WITHIN_NORMAL_LIMITS"
+    }
+  ],
+  "submillisecond_event_chronology": [
+    {
+      "timestamp_utc": "2024-10-24T14:05:01.014Z",
+      "delta_ms": 0.0,
+      "layer": "MICROSTRUCTURE_FEED",
+      "event": "L3_SPREAD_SPIKE_DETECTED",
+      "details": "Binance BTC/USDT top-of-book spread dilated to 12.4 bps (> 8.0 bps threshold). Aggregate L3 depth collapsed -71.2% in 200ms."
+    },
+    {
+      "timestamp_utc": "2024-10-24T14:05:01.018Z",
+      "delta_ms": 4.0,
+      "layer": "INTEL_SGX_RISK_ENCLAVE",
+      "event": "CIRCUIT_BREAKER_GUARDRAIL_4_TRIPPED",
+      "details": "Enclave hardware intercept tripped. Aborted pending $25,000 TWAP IOC taker micro-slice. All aggressive market takers locked."
+    },
+    {
+      "timestamp_utc": "2024-10-24T14:05:01.022Z",
+      "delta_ms": 8.0,
+      "layer": "SMART_ORDER_ROUTER",
+      "event": "ROUTER_RECONFIGURED_TO_PASSIVE_MAKER",
+      "details": "Diverted execution to passive maker post-only queue. Placed non-crossing defensive peg at $65,115.00."
+    },
+    {
+      "timestamp_utc": "2024-10-24T14:05:02.100Z",
+      "delta_ms": 1086.0,
+      "layer": "KERNEL_TELEMETRY",
+      "event": "AUTO_RESET_MONITORING_ARMED",
+      "details": "Armed auto-reset surveillance window: spread must sustain < 3.0 bps across 500 consecutive ticks with zero latency drops."
+    },
+    {
+      "timestamp_utc": "2024-10-24T14:05:14.920Z",
+      "delta_ms": 13906.0,
+      "layer": "KERNEL_TELEMETRY",
+      "event": "RECOVERY_CRITERIA_SATISFIED",
+      "details": "L3 depth reconstituted +142%. Spread normalized to 1.1 bps for 500 consecutive ticks. Circuit breaker condition cleared."
+    },
+    {
+      "timestamp_utc": "2024-10-24T14:05:15.002Z",
+      "delta_ms": 13988.0,
+      "layer": "SMART_ORDER_ROUTER",
+      "event": "DUAL_EXECUTION_RESUMED",
+      "details": "IOC gates unblocked. Deferred $25k TWAP tranche dispatched to Binance Futures L3 queue."
+    },
+    {
+      "timestamp_utc": "2024-10-24T14:05:15.840Z",
+      "delta_ms": 14826.0,
+      "layer": "EXECUTION_ENGINE",
+      "event": "ORDER_FILLED_NOMINAL",
+      "details": "BTC/USDT micro-slice filled @ $65,718.40 (+0.2 bps slippage). Total verified capital preserved: $4,180.00 USD."
+    }
+  ],
+  "verification_signatures": {
+    "enclave_hardware_signature": "MEQCIG6a+8Vf9e71x2/b39a8y0nF1z19eL3298x01a...991A4==",
+    "risk_officer_auto_attest": "SYSTEM_ALPHATRADE_RISK_CONTROLLER_v9.4",
+    "vault_sync_status": "SYNCHRONIZED_BLOCK_#19820194"
+  }
+}
