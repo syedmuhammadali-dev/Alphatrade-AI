@@ -1,5 +1,5 @@
 {
-  "name": "@alphatrade/shared-types",
+  "name": "@alphatrade/exchange-client",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -11,15 +11,17 @@
   "scripts": {
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run",
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "zod": "^3.23.0"
+    "@alphatrade/shared-config": "workspace:*",
+    "@alphatrade/shared-types": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.6.0",
     "vitest": "^2.1.0",
-    "rimraf": "^6.0.0"
+    "rimraf": "^6.0.0",
+    "@types/node": "^22.9.0"
   }
 }

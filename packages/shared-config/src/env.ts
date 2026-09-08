@@ -14,11 +14,24 @@ const envSchema = z.object({
 
   API_PORT: z.coerce.number().int().positive().default(4000),
   API_HOST: z.string().default("0.0.0.0"),
-  CORS_ORIGIN: z.string().default("http://localhost:3000"),
+  CORS_ORIGIN: z.string().default("http://localhost:3010"),
 
   NEXT_PUBLIC_API_URL: z.string().optional(),
 
   ENCRYPTION_KEY: z.string().optional(),
+
+  // services/market-data
+  MARKET_DATA_PORT: z.coerce.number().int().positive().default(4100),
+  MARKET_DATA_HOST: z.string().default("0.0.0.0"),
+  BINANCE_WS_BASE_URL: z.string().default("wss://stream.binance.com:9443"),
+  BINANCE_REST_BASE_URL: z.string().default("https://api.binance.com"),
+  MARKET_DATA_WATCHLIST: z
+    .string()
+    .default("BTCUSDT,ETHUSDT,BNBUSDT,SOLUSDT,XRPUSDT,ADAUSDT,DOGEUSDT,AVAXUSDT,LINKUSDT,DOTUSDT"),
+  MARKET_DATA_QUOTE_FILTER: z.string().default("USDT"),
+
+  // apps/api -> services/market-data
+  MARKET_DATA_URL: z.string().default("http://localhost:4100"),
 });
 
 export type Env = z.infer<typeof envSchema>;

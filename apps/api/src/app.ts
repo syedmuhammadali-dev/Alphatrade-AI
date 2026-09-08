@@ -7,6 +7,7 @@ import { loadEnv, createLogger } from "@alphatrade/shared-config";
 import authPlugin from "./plugins/auth";
 import authRoutes from "./routes/auth";
 import botRoutes from "./routes/bot";
+import marketRoutes from "./routes/market";
 
 export async function buildApp() {
   const env = loadEnv();
@@ -31,6 +32,7 @@ export async function buildApp() {
 
   await app.register(authRoutes);
   await app.register(botRoutes);
+  await app.register(marketRoutes);
 
   app.get("/health", async () => ({ ok: true }));
 

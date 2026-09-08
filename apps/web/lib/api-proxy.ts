@@ -23,7 +23,8 @@ export async function proxyToApi(
     headers["content-type"] = "application/json";
   }
 
-  const apiResponse = await fetch(`${getApiBaseUrl()}${path}`, {
+  const search = request.nextUrl.search;
+  const apiResponse = await fetch(`${getApiBaseUrl()}${path}${search}`, {
     method: init.method,
     headers,
     body,
