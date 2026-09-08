@@ -19,6 +19,10 @@ out/
 # testing
 coverage/
 
+# typescript build info / generated
+*.tsbuildinfo
+next-env.d.ts
+
 # logs
 *.log
 npm-debug.log*
