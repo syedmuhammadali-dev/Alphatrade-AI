@@ -1,2 +1,34 @@
+# secrets / local task tracking
 .env
-remaining-tasks.mdg
+.env.*.local
+remaining-tasks.md
+
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+.next/
+dist/
+build/
+out/
+
+# turborepo
+.turbo/
+
+# testing
+coverage/
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# editor / os
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# env inference / drizzle
+drizzle/.metadata
