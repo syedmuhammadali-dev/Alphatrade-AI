@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "dotenv -e ../../.env -- next dev",
+    "dev": "dotenv -e ../../.env -- next dev -p 3010",
     "build": "dotenv -e ../../.env -- next build",
-    "start": "dotenv -e ../../.env -- next start",
+    "start": "dotenv -e ../../.env -- next start -p 3010",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "clean": "rimraf .next"
+    "clean": "rimraf .next",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@alphatrade/shared-types": "workspace:*",
@@ -29,6 +30,7 @@
     "rimraf": "^6.0.0",
     "eslint": "^9.14.0",
     "eslint-config-next": "^15.0.0",
-    "dotenv-cli": "^7.4.2"
+    "dotenv-cli": "^7.4.2",
+    "@playwright/test": "^1.48.0"
   }
 }

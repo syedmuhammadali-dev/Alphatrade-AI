@@ -18,6 +18,10 @@ out/
 
 # testing
 coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
 
 # typescript build info / generated
 *.tsbuildinfo

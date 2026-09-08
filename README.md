@@ -6,17 +6,17 @@ Autonomous crypto trading platform — modular monorepo. See [remaining-tasks.md
 
 ## Local development
 
-Prerequisites: Node 20+, pnpm 9+, Docker.
+Prerequisites: Node 20+, pnpm 9+, and a Postgres 16 instance (Docker, or any existing local/native Postgres — just point `DATABASE_URL` at it).
 
 ```bash
 pnpm install
-docker compose up -d                              # starts local Postgres
+docker compose up -d                              # starts local Postgres (skip if you're using an existing Postgres instance)
 pnpm --filter @alphatrade/database db:generate    # generate SQL migrations from schema (first run)
 pnpm --filter @alphatrade/database db:migrate     # apply migrations
-pnpm dev                                          # runs apps/api (port 4000) + apps/web (port 3000)
+pnpm dev                                          # runs apps/api (port 4000) + apps/web (port 3010)
 ```
 
-Then open http://localhost:3000, register an account, and you'll land on the dashboard.
+Then open http://localhost:3010, register an account, and you'll land on the dashboard.
 
 Copy `.env.example` to `.env` and fill in real secrets before running anything — `.env` is gitignored.
 

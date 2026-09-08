@@ -14,12 +14,18 @@ export async function proxyToApi(
   const cookie = request.headers.get("cookie") ?? "";
   const body = init.method === "GET" || init.method === "HEAD" ? undefined : await request.text();
 
+  const headers: Record<string, string> = { cookie };
+  if (body) {
+    // Only send content-type when there's an actual body — Fastify's JSON
+    // parser 400s on an empty body declared as application/json, which for
+    // body-less POSTs (e.g. /auth/logout) would fail before our route
+    // handler ever runs, leaving auth cookies uncleared.
+    headers["content-type"] = "application/json";
+  }
+
   const apiResponse = await fetch(`${getApiBaseUrl()}${path}`, {
     method: init.method,
-    headers: {
-      "content-type": "application/json",
-      cookie,
-    },
+    headers,
     body,
   });
 
