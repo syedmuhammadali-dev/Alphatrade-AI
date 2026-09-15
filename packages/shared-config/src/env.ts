@@ -32,6 +32,13 @@ const envSchema = z.object({
 
   // apps/api -> services/market-data
   MARKET_DATA_URL: z.string().default("http://localhost:4100"),
+
+  // services/analysis-engine
+  ANALYSIS_ENGINE_PORT: z.coerce.number().int().positive().default(4200),
+  ANALYSIS_ENGINE_HOST: z.string().default("0.0.0.0"),
+
+  // apps/api -> services/analysis-engine
+  ANALYSIS_ENGINE_URL: z.string().default("http://localhost:4200"),
 });
 
 export type Env = z.infer<typeof envSchema>;

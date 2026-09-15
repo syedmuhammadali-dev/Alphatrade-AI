@@ -70,10 +70,10 @@ export function Sidebar() {
       <div className="p-space-sm border-t border-outline-variant/30 flex flex-col gap-space-xs bg-surface-container-lowest">
         <div className="flex items-center justify-between font-label-numeric-sm text-label-numeric-sm text-outline">
           <span className="uppercase font-label-caps text-label-caps">PHASE</span>
-          <span>2 / 11</span>
+          <span>3 / 11</span>
         </div>
         <div className="w-full bg-surface-container h-1 rounded-full overflow-hidden">
-          <div className="bg-primary h-full" style={{ width: "18%" }} />
+          <div className="bg-primary h-full" style={{ width: "27%" }} />
         </div>
       </div>
     </aside>

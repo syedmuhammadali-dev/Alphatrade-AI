@@ -2,21 +2,21 @@
 
 Autonomous crypto trading platform — modular monorepo. See [remaining-tasks.md](./remaining-tasks.md) for the live backlog and phase plan.
 
-**Status:** Phase 2 (monorepo, database, authentication, dashboard, live Binance market-data service + market scanner). No paper/live trading, technical analysis, or strategy engine exists yet — the dashboard KPI cards still show illustrative demo data; the Market Scanner is real live data. No guaranteed returns are claimed anywhere in this project.
+**Status:** Phase 3 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection). No paper/live trading or strategy engine exists yet — the dashboard KPI cards still show illustrative demo data; the Market Scanner and Coin Analysis pages are real live data. No guaranteed returns are claimed anywhere in this project.
 
 ## Local development
 
-Prerequisites: Node 20+, pnpm 9+, and a Postgres 16 instance (Docker, or any existing local/native Postgres — just point `DATABASE_URL` at it). No exchange API keys are needed for Phase 2 — market data comes from Binance's public, unauthenticated WebSocket streams.
+Prerequisites: Node 20+, pnpm 9+, and a Postgres 16 instance (Docker, or any existing local/native Postgres — just point `DATABASE_URL` at it). No exchange API keys are needed — market data comes from Binance's public, unauthenticated WebSocket/REST endpoints.
 
 ```bash
 pnpm install
 docker compose up -d                              # starts local Postgres (skip if you're using an existing Postgres instance)
 pnpm --filter @alphatrade/database db:generate    # generate SQL migrations from schema (first run)
 pnpm --filter @alphatrade/database db:migrate     # apply migrations
-pnpm dev                                          # runs apps/api (4000) + apps/web (3010) + services/market-data (4100)
+pnpm dev                                          # runs apps/api (4000) + apps/web (3010) + services/market-data (4100) + services/analysis-engine (4200)
 ```
 
-Then open http://localhost:3010, register an account, and you'll land on the dashboard. Open the "Market Scanner" nav item for the live, polling-refreshed table of Binance USDT pairs.
+Then open http://localhost:3010, register an account, and you'll land on the dashboard. Open the "Market Scanner" nav item for the live, polling-refreshed table of Binance USDT pairs, and click any symbol for real technical analysis (RSI, MACD, EMAs, ATR, VWAP, ADX, market structure, regime).
 
 Copy `.env.example` to `.env` and fill in real secrets before running anything — `.env` is gitignored.
 
@@ -33,9 +33,10 @@ pnpm --filter @alphatrade/web test:e2e             # e2e tests — needs api+web
 ## Monorepo layout
 
 - `apps/web` — Next.js dashboard
-- `apps/api` — Fastify REST API (auth, bot status, market data proxy)
+- `apps/api` — Fastify REST API (auth, bot status, market data + analysis proxy)
 - `apps/extension` — Chrome extension (Phase 10)
-- `services/market-data` — Binance public WebSocket ingestion, in-memory market state, scanner/symbol HTTP API
+- `services/market-data` — Binance public WebSocket/REST ingestion, in-memory market state, scanner/symbol HTTP API
+- `services/analysis-engine` — technical indicators, market structure, and regime classification computed from market-data's candles
 - `services/*` (remaining) — trading pipeline workers, added phase by phase
 - `packages/*` — shared code (database schema, types, config, UI, exchange client, indicators, strategy engine)
 - `stitch_alphatrade_ai_trading_platform/` — source design mockups the web UI is built from

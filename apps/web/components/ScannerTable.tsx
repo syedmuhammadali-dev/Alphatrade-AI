@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import type { ScannerResponse } from "@alphatrade/shared-types";
 import { Badge } from "@alphatrade/ui";
 
@@ -89,12 +90,17 @@ export function ScannerTable({ initial }: { initial: ScannerResponse }) {
             {data.entries.map((entry) => {
               const positive = entry.priceChangePercent >= 0;
               return (
-                <tr key={entry.symbol} className="hover:bg-surface-container-low/50 transition-colors">
+                <tr
+                  key={entry.symbol}
+                  className="hover:bg-surface-container-low/50 transition-colors cursor-pointer"
+                >
                   <td className="py-space-sm px-space-sm font-label-numeric-sm text-label-numeric-sm text-outline">
                     {entry.rank}
                   </td>
                   <td className="py-space-sm px-space-sm font-label-numeric-md text-label-numeric-md font-semibold text-on-surface">
-                    {entry.symbol}
+                    <Link href={`/dashboard/scanner/${entry.symbol}`} className="hover:text-primary transition-colors">
+                      {entry.symbol}
+                    </Link>
                   </td>
                   <td className="py-space-sm px-space-sm text-right font-label-numeric-sm text-label-numeric-sm text-on-surface">
                     ${formatPrice(entry.lastPrice)}

@@ -5,8 +5,9 @@ import { randomUUID } from "node:crypto";
 import { closeDb } from "@alphatrade/database";
 
 /**
- * Spins up a tiny fake market-data upstream (no real Binance dependency) so
- * this test exercises apps/api's proxy + auth-gating logic in isolation.
+ * Spins up tiny fake market-data and analysis-engine upstreams (no real
+ * Binance dependency) so this test exercises apps/api's proxy + auth-gating
+ * logic in isolation.
  */
 function startFakeMarketData(): Promise<{ server: Server; url: string }> {
   return new Promise((resolve) => {
@@ -48,15 +49,45 @@ function startFakeMarketData(): Promise<{ server: Server; url: string }> {
   });
 }
 
+function startFakeAnalysisEngine(): Promise<{ server: Server; url: string }> {
+  return new Promise((resolve) => {
+    const server = createServer((req, res) => {
+      res.setHeader("content-type", "application/json");
+      if (req.url?.startsWith("/internal/analysis/")) {
+        res.end(
+          JSON.stringify({
+            analysis: { symbol: "BTCUSDT", timeframe: "1m", candleCount: 60 },
+            structure: { pattern: "HH_HL", bias: "BULLISH_STRUCTURE" },
+            regime: "TRENDING_BULLISH",
+          }),
+        );
+        return;
+      }
+      res.statusCode = 404;
+      res.end(JSON.stringify({ error: "not found" }));
+    });
+    server.listen(0, () => {
+      const address = server.address();
+      const port = typeof address === "object" && address ? address.port : 0;
+      resolve({ server, url: `http://127.0.0.1:${port}` });
+    });
+  });
+}
+
 describe("market routes", () => {
   let app: FastifyInstance;
-  let fakeServer: Server;
+  let fakeMarketDataServer: Server;
+  let fakeAnalysisServer: Server;
   let accessCookie: string;
 
   beforeAll(async () => {
-    const fake = await startFakeMarketData();
-    fakeServer = fake.server;
-    process.env.MARKET_DATA_URL = fake.url;
+    const fakeMarketData = await startFakeMarketData();
+    fakeMarketDataServer = fakeMarketData.server;
+    process.env.MARKET_DATA_URL = fakeMarketData.url;
+
+    const fakeAnalysis = await startFakeAnalysisEngine();
+    fakeAnalysisServer = fakeAnalysis.server;
+    process.env.ANALYSIS_ENGINE_URL = fakeAnalysis.url;
 
     const { buildApp } = await import("../src/app");
     app = await buildApp();
@@ -76,7 +107,8 @@ describe("market routes", () => {
   afterAll(async () => {
     await app.close();
     await closeDb();
-    await new Promise((resolve) => fakeServer.close(resolve));
+    await new Promise((resolve) => fakeMarketDataServer.close(resolve));
+    await new Promise((resolve) => fakeAnalysisServer.close(resolve));
   });
 
   it("rejects unauthenticated scanner requests", async () => {
@@ -106,15 +138,43 @@ describe("market routes", () => {
     expect(res.json()).toEqual({ ticker: null, candles: [] });
   });
 
+  it("rejects unauthenticated analysis requests", async () => {
+    const res = await app.inject({ method: "GET", url: "/market/BTCUSDT/analysis" });
+    expect(res.statusCode).toBe(401);
+  });
+
+  it("proxies the symbol analysis response for an authenticated request", async () => {
+    const res = await app.inject({
+      method: "GET",
+      url: "/market/BTCUSDT/analysis",
+      headers: { cookie: accessCookie },
+    });
+    expect(res.statusCode).toBe(200);
+    const body = res.json();
+    expect(body.regime).toBe("TRENDING_BULLISH");
+    expect(body.analysis.symbol).toBe("BTCUSDT");
+  });
+
   it("returns 503 when the market-data upstream is unreachable", async () => {
     // loadEnv() memoizes MARKET_DATA_URL for the process, so simulate
     // "unreachable" by tearing down the fake upstream rather than pointing
     // at a different URL (which loadEnv's cache would ignore anyway).
-    await new Promise((resolve) => fakeServer.close(resolve));
+    await new Promise((resolve) => fakeMarketDataServer.close(resolve));
 
     const res = await app.inject({
       method: "GET",
       url: "/market/scanner",
+      headers: { cookie: accessCookie },
+    });
+    expect(res.statusCode).toBe(503);
+  });
+
+  it("returns 503 when the analysis-engine upstream is unreachable", async () => {
+    await new Promise((resolve) => fakeAnalysisServer.close(resolve));
+
+    const res = await app.inject({
+      method: "GET",
+      url: "/market/BTCUSDT/analysis",
       headers: { cookie: accessCookie },
     });
     expect(res.statusCode).toBe(503);
