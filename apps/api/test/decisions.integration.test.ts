@@ -50,9 +50,29 @@ function startFakeTradingEngine(): Promise<{ server: Server; url: string }> {
   });
 }
 
+function startFakeRiskEngine(): Promise<{ server: Server; url: string }> {
+  return new Promise((resolve) => {
+    const server = createServer((req, res) => {
+      res.setHeader("content-type", "application/json");
+      if (req.url === "/internal/check") {
+        res.end(JSON.stringify({ decision: "APPROVED", reasons: ["all checks passed"], positionSize: { units: 20, notionalValueUsd: 2000, riskAmountUsd: 100, cappedByMaxPositionSize: false } }));
+        return;
+      }
+      res.statusCode = 404;
+      res.end(JSON.stringify({ error: "not found" }));
+    });
+    server.listen(0, () => {
+      const address = server.address();
+      const port = typeof address === "object" && address ? address.port : 0;
+      resolve({ server, url: `http://127.0.0.1:${port}` });
+    });
+  });
+}
+
 describe("strategies and decisions routes", () => {
   let app: FastifyInstance;
   let fakeServer: Server;
+  let fakeRiskServer: Server;
   let accessCookie: string;
   let userId: string;
 
@@ -60,6 +80,10 @@ describe("strategies and decisions routes", () => {
     const fake = await startFakeTradingEngine();
     fakeServer = fake.server;
     process.env.TRADING_ENGINE_URL = fake.url;
+
+    const fakeRisk = await startFakeRiskEngine();
+    fakeRiskServer = fakeRisk.server;
+    process.env.RISK_ENGINE_URL = fakeRisk.url;
 
     const { buildApp } = await import("../src/app");
     app = await buildApp();
@@ -81,6 +105,7 @@ describe("strategies and decisions routes", () => {
     await app.close();
     await closeDb();
     await new Promise((resolve) => fakeServer.close(resolve));
+    await new Promise((resolve) => fakeRiskServer.close(resolve));
   });
 
   it("GET /strategies lists the registered strategies with descriptions", async () => {
@@ -129,6 +154,7 @@ describe("strategies and decisions routes", () => {
     expect(res.statusCode).toBe(200);
     const body = res.json();
     expect(body.opportunities[0].symbol).toBe("BTCUSDT");
+    expect(body.opportunities[0].riskCheck.decision).toBe("APPROVED");
 
     const db = getDb();
     const rows = await db.select().from(tradeDecisions).where(eq(tradeDecisions.userId, userId));
@@ -142,7 +168,9 @@ describe("strategies and decisions routes", () => {
       headers: { cookie: accessCookie },
     });
     expect(res.statusCode).toBe(200);
-    expect(res.json().action).toBe("LONG");
+    const decisionBody = res.json();
+    expect(decisionBody.action).toBe("LONG");
+    expect(decisionBody.riskCheck.decision).toBe("APPROVED");
 
     const db = getDb();
     const rows = await db.select().from(tradeDecisions).where(eq(tradeDecisions.userId, userId));

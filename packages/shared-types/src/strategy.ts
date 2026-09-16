@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { riskCheckResultSchema } from "./risk";
 
 export const actionSchema = z.enum(["LONG", "SHORT", "NO_TRADE"]);
 export type Action = z.infer<typeof actionSchema>;
@@ -37,6 +38,8 @@ export const decisionResponseSchema = z.object({
   action: actionSchema,
   proposal: tradeProposalSchema.nullable(),
   signals: z.array(strategySignalSchema),
+  /** Populated by apps/api after calling the independent risk engine; trading-engine itself never sets this. */
+  riskCheck: riskCheckResultSchema.nullable().optional(),
 });
 export type DecisionResponse = z.infer<typeof decisionResponseSchema>;
 
@@ -48,6 +51,7 @@ export const rankedOpportunitySchema = z.object({
   confidence: z.number(),
   action: actionSchema,
   proposal: tradeProposalSchema.nullable(),
+  riskCheck: riskCheckResultSchema.nullable().optional(),
 });
 export type RankedOpportunity = z.infer<typeof rankedOpportunitySchema>;
 

@@ -55,8 +55,8 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
           </div>
           <p className="font-body-sm text-body-sm text-outline mt-0.5">
             Ranked by the Opportunity Ranker across trend strength, structure, volume, liquidity, and strategy
-            confidence. NO_TRADE is a valid outcome — nothing here is executed automatically (that ships in later
-            phases, behind an independent risk engine).
+            confidence. Each actionable proposal is separately evaluated by the Independent Risk Engine — see the
+            Risk column. NO_TRADE is a valid outcome. Nothing here executes automatically yet (Phase 6+).
           </p>
         </div>
         <div className="flex items-center gap-space-sm">
@@ -83,6 +83,7 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
               <th className="py-2.5 px-space-sm font-semibold text-right">Entry / SL / TP</th>
               <th className="py-2.5 px-space-sm font-semibold text-right">R:R</th>
               <th className="py-2.5 px-space-sm font-semibold text-right">Score</th>
+              <th className="py-2.5 px-space-sm font-semibold">Risk</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-outline-variant/10">
@@ -115,6 +116,17 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
                 </td>
                 <td className="py-space-sm px-space-sm text-right font-label-numeric-sm text-label-numeric-sm text-on-surface font-semibold">
                   {opp.totalScore.toFixed(1)}
+                </td>
+                <td className="py-space-sm px-space-sm">
+                  {opp.riskCheck ? (
+                    <span title={opp.riskCheck.reasons.join(" | ")}>
+                      <Badge tone={opp.riskCheck.decision === "APPROVED" ? "positive" : "negative"}>
+                        {opp.riskCheck.decision}
+                      </Badge>
+                    </span>
+                  ) : (
+                    <span className="font-label-numeric-sm text-label-numeric-sm text-outline">—</span>
+                  )}
                 </td>
               </tr>
             ))}

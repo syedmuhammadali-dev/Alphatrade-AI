@@ -10,6 +10,7 @@ import botRoutes from "./routes/bot";
 import marketRoutes from "./routes/market";
 import strategiesRoutes from "./routes/strategies";
 import decisionsRoutes from "./routes/decisions";
+import riskRoutes from "./routes/risk";
 
 export async function buildApp() {
   const env = loadEnv();
@@ -37,6 +38,7 @@ export async function buildApp() {
   await app.register(marketRoutes);
   await app.register(strategiesRoutes);
   await app.register(decisionsRoutes);
+  await app.register(riskRoutes);
 
   app.get("/health", async () => ({ ok: true }));
 
