@@ -2,7 +2,7 @@
 
 Autonomous crypto trading platform — modular monorepo. See [remaining-tasks.md](./remaining-tasks.md) for the live backlog and phase plan.
 
-**Status:** Phase 3 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection). No paper/live trading or strategy engine exists yet — the dashboard KPI cards still show illustrative demo data; the Market Scanner and Coin Analysis pages are real live data. No guaranteed returns are claimed anywhere in this project.
+**Status:** Phase 4 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine). No risk engine, paper/live trading, or execution exists yet — nothing here places an order. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, and Strategy Engine pages are real live data. No guaranteed returns are claimed anywhere in this project.
 
 ## Local development
 
@@ -13,10 +13,15 @@ pnpm install
 docker compose up -d                              # starts local Postgres (skip if you're using an existing Postgres instance)
 pnpm --filter @alphatrade/database db:generate    # generate SQL migrations from schema (first run)
 pnpm --filter @alphatrade/database db:migrate     # apply migrations
-pnpm dev                                          # runs apps/api (4000) + apps/web (3010) + services/market-data (4100) + services/analysis-engine (4200)
+pnpm dev                                          # runs apps/api (4000) + apps/web (3010) + market-data (4100) + analysis-engine (4200) + trading-engine (4300)
 ```
 
-Then open http://localhost:3010, register an account, and you'll land on the dashboard. Open the "Market Scanner" nav item for the live, polling-refreshed table of Binance USDT pairs, and click any symbol for real technical analysis (RSI, MACD, EMAs, ATR, VWAP, ADX, market structure, regime).
+Then open http://localhost:3010, register an account, and you'll land on the dashboard.
+
+- **Market Scanner** — live, polling-refreshed table of Binance USDT pairs.
+- **Coin Analysis** (click any scanner row) — real technical analysis (RSI, MACD, EMAs, ATR, VWAP, ADX, market structure, regime).
+- **AI Decisions** — the Opportunity Ranker's output across the watchlist: recommended strategy, confidence, entry/stop/target, risk:reward, and a total score. NO_TRADE is shown as a valid outcome, not hidden.
+- **Strategy Engine** — the four registered strategies (Trend Following, Breakout, Momentum, Mean Reversion) with per-user enable/disable.
 
 Copy `.env.example` to `.env` and fill in real secrets before running anything — `.env` is gitignored.
 
@@ -27,16 +32,17 @@ pnpm test                                          # unit + integration tests (n
 pnpm typecheck
 pnpm lint
 pnpm --filter @alphatrade/web exec playwright install chromium   # once, to fetch the browser binary
-pnpm --filter @alphatrade/web test:e2e             # e2e tests — needs api+web+market-data all running (pnpm dev)
+pnpm --filter @alphatrade/web test:e2e             # e2e tests — needs every `pnpm dev` service running
 ```
 
 ## Monorepo layout
 
 - `apps/web` — Next.js dashboard
-- `apps/api` — Fastify REST API (auth, bot status, market data + analysis proxy)
+- `apps/api` — Fastify REST API (auth, bot status, market data + analysis + decisions/strategies proxy)
 - `apps/extension` — Chrome extension (Phase 10)
 - `services/market-data` — Binance public WebSocket/REST ingestion, in-memory market state, scanner/symbol HTTP API
 - `services/analysis-engine` — technical indicators, market structure, and regime classification computed from market-data's candles
+- `services/trading-engine` — strategy selection (packages/strategy-engine) + opportunity ranking + TradeProposal generation; stateless, never executes anything
 - `services/*` (remaining) — trading pipeline workers, added phase by phase
 - `packages/*` — shared code (database schema, types, config, UI, exchange client, indicators, strategy engine)
 - `stitch_alphatrade_ai_trading_platform/` — source design mockups the web UI is built from

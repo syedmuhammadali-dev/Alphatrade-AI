@@ -7,6 +7,7 @@ export type Trend = z.infer<typeof trendSchema>;
 export const analysisResultSchema = z.object({
   symbol: z.string(),
   timeframe: z.string(),
+  lastPrice: z.number(),
   rsi: z.number().nullable(),
   macd: z.object({
     value: z.number().nullable(),
@@ -19,6 +20,11 @@ export const analysisResultSchema = z.object({
   atr: z.number().nullable(),
   vwap: z.number().nullable(),
   adx: z.number().nullable(),
+  bollinger: z.object({
+    upper: z.number().nullable(),
+    middle: z.number().nullable(),
+    lower: z.number().nullable(),
+  }),
   volumeRatio: z.number().nullable(),
   trend: trendSchema,
   candleCount: z.number(),

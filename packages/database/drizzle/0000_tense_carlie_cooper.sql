@@ -1,4 +1,5 @@
 CREATE TYPE "public"."bot_status" AS ENUM('stopped', 'running', 'paused', 'emergency_stopped');--> statement-breakpoint
+CREATE TYPE "public"."decision_side" AS ENUM('LONG', 'SHORT', 'NO_TRADE');--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "audit_logs" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"user_id" uuid,
@@ -38,6 +39,32 @@ CREATE TABLE IF NOT EXISTS "sessions" (
 	CONSTRAINT "sessions_refresh_token_hash_unique" UNIQUE("refresh_token_hash")
 );
 --> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "strategy_configs" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"user_id" uuid NOT NULL,
+	"strategy_name" text NOT NULL,
+	"enabled" boolean DEFAULT true NOT NULL,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
+	CONSTRAINT "strategy_configs_user_id_strategy_name_unique" UNIQUE("user_id","strategy_name")
+);
+--> statement-breakpoint
+CREATE TABLE IF NOT EXISTS "trade_decisions" (
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"user_id" uuid NOT NULL,
+	"symbol" text NOT NULL,
+	"side" "decision_side" NOT NULL,
+	"strategy" text,
+	"confidence" real NOT NULL,
+	"entry_price" real,
+	"stop_loss" real,
+	"take_profit" real,
+	"risk_reward" real,
+	"regime" text NOT NULL,
+	"reasoning" text NOT NULL,
+	"created_at" timestamp with time zone DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "audit_logs" ADD CONSTRAINT "audit_logs_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE set null ON UPDATE no action;
 EXCEPTION
@@ -52,6 +79,18 @@ END $$;
 --> statement-breakpoint
 DO $$ BEGIN
  ALTER TABLE "sessions" ADD CONSTRAINT "sessions_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "strategy_configs" ADD CONSTRAINT "strategy_configs_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
+--> statement-breakpoint
+DO $$ BEGIN
+ ALTER TABLE "trade_decisions" ADD CONSTRAINT "trade_decisions_user_id_users_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."users"("id") ON DELETE cascade ON UPDATE no action;
 EXCEPTION
  WHEN duplicate_object THEN null;
 END $$;

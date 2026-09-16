@@ -39,6 +39,13 @@ const envSchema = z.object({
 
   // apps/api -> services/analysis-engine
   ANALYSIS_ENGINE_URL: z.string().default("http://localhost:4200"),
+
+  // services/trading-engine
+  TRADING_ENGINE_PORT: z.coerce.number().int().positive().default(4300),
+  TRADING_ENGINE_HOST: z.string().default("0.0.0.0"),
+
+  // apps/api -> services/trading-engine
+  TRADING_ENGINE_URL: z.string().default("http://localhost:4300"),
 });
 
 export type Env = z.infer<typeof envSchema>;

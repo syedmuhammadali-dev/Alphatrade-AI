@@ -1,6 +1,6 @@
 import type { Candle } from "@alphatrade/shared-types";
 import type { AnalysisResult, Trend } from "@alphatrade/shared-types";
-import { rsi, macd, ema, atr, vwap, adx, sma, last } from "@alphatrade/indicators";
+import { rsi, macd, ema, atr, vwap, adx, sma, bollingerBands, last } from "@alphatrade/indicators";
 
 const VOLUME_BASELINE_PERIOD = 20;
 
@@ -17,6 +17,7 @@ export function analyze(symbol: string, timeframe: string, candles: Candle[]): A
   const atrValue = last(atr(candles, 14)) ?? null;
   const vwapValue = candles.length > 0 ? (last(vwap(candles)) ?? null) : null;
   const adxValue = last(adx(candles, 14)) ?? null;
+  const bollinger = last(bollingerBands(closes, 20, 2)) ?? { upper: null, middle: null, lower: null };
 
   const volumeBaseline = last(sma(volumes, VOLUME_BASELINE_PERIOD)) ?? null;
   const currentVolume = last(volumes) ?? null;
@@ -26,6 +27,7 @@ export function analyze(symbol: string, timeframe: string, candles: Candle[]): A
   return {
     symbol,
     timeframe,
+    lastPrice: last(closes) ?? 0,
     rsi: rsiValue,
     macd: {
       value: last(macdResult.macd) ?? null,
@@ -38,6 +40,7 @@ export function analyze(symbol: string, timeframe: string, candles: Candle[]): A
     atr: atrValue,
     vwap: vwapValue,
     adx: adxValue,
+    bollinger,
     volumeRatio,
     trend: deriveTrend(closes, ema20, ema50),
     candleCount: candles.length,

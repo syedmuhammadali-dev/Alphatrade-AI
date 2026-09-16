@@ -14,9 +14,9 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/dashboard", icon: "dashboard", label: "Overview" },
   { href: "/dashboard/bot", icon: "memory", label: "Autonomous Bot", trailing: "Phase 8", disabled: true },
   { href: "/dashboard/scanner", icon: "radar", label: "Market Scanner" },
-  { href: "/dashboard/decisions", icon: "psychology", label: "AI Decisions", trailing: "Phase 4", disabled: true },
+  { href: "/dashboard/decisions", icon: "psychology", label: "AI Decisions" },
   { href: "/dashboard/trades", icon: "candlestick_chart", label: "Active Trades", trailing: "Phase 9", disabled: true },
-  { href: "/dashboard/strategies", icon: "tune", label: "Strategy Engine", trailing: "Phase 4", disabled: true },
+  { href: "/dashboard/strategies", icon: "tune", label: "Strategy Engine" },
   { href: "/dashboard/backtesting", icon: "history_toggle_off", label: "Backtesting", trailing: "Phase 7", disabled: true },
   { href: "/dashboard/risk", icon: "shield", label: "Risk & Security", trailing: "Phase 5", disabled: true },
   { href: "/dashboard/settings", icon: "settings", label: "Settings", trailing: "Phase 9", disabled: true },
@@ -70,10 +70,10 @@ export function Sidebar() {
       <div className="p-space-sm border-t border-outline-variant/30 flex flex-col gap-space-xs bg-surface-container-lowest">
         <div className="flex items-center justify-between font-label-numeric-sm text-label-numeric-sm text-outline">
           <span className="uppercase font-label-caps text-label-caps">PHASE</span>
-          <span>3 / 11</span>
+          <span>4 / 11</span>
         </div>
         <div className="w-full bg-surface-container h-1 rounded-full overflow-hidden">
-          <div className="bg-primary h-full" style={{ width: "27%" }} />
+          <div className="bg-primary h-full" style={{ width: "36%" }} />
         </div>
       </div>
     </aside>

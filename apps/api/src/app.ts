@@ -8,6 +8,8 @@ import authPlugin from "./plugins/auth";
 import authRoutes from "./routes/auth";
 import botRoutes from "./routes/bot";
 import marketRoutes from "./routes/market";
+import strategiesRoutes from "./routes/strategies";
+import decisionsRoutes from "./routes/decisions";
 
 export async function buildApp() {
   const env = loadEnv();
@@ -33,6 +35,8 @@ export async function buildApp() {
   await app.register(authRoutes);
   await app.register(botRoutes);
   await app.register(marketRoutes);
+  await app.register(strategiesRoutes);
+  await app.register(decisionsRoutes);
 
   app.get("/health", async () => ({ ok: true }));
 
