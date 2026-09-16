@@ -12,7 +12,13 @@ export async function proxyToApi(
   init: { method: string },
 ): Promise<NextResponse> {
   const cookie = request.headers.get("cookie") ?? "";
-  const body = init.method === "GET" || init.method === "HEAD" ? undefined : await request.text();
+  const rawBody = init.method === "GET" || init.method === "HEAD" ? "" : await request.text();
+  // Passing even an empty string as fetch's `body` makes it auto-set
+  // Content-Type: text/plain (per the fetch spec, for any string body) —
+  // Fastify then parses the request as text/plain instead of JSON, handing
+  // route handlers a raw string instead of undefined/an object. `undefined`
+  // is the only value that actually omits the body (and the header).
+  const body = rawBody ? rawBody : undefined;
 
   const headers: Record<string, string> = { cookie };
   if (body) {

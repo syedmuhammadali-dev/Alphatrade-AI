@@ -9,10 +9,10 @@ export class RiskEngineUnavailableError extends Error {
 }
 
 /**
- * accountState defaults to an empty portfolio (no open positions, no
- * losses) since paper/live trading (Phase 6/9) don't exist yet to supply a
- * real one — the risk engine itself never fetches this; the caller always
- * provides it.
+ * accountState defaults to an empty portfolio when the caller has nothing
+ * real to report yet (e.g. no paper account exists) — the risk engine
+ * itself never fetches this; the caller always provides it. Callers with a
+ * paper (or, later, live) account should pass its real state instead.
  */
 export async function checkProposal(
   proposal: TradeProposal,

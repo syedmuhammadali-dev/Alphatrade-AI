@@ -2,7 +2,7 @@
 
 Autonomous crypto trading platform — modular monorepo. See [remaining-tasks.md](./remaining-tasks.md) for the live backlog and phase plan.
 
-**Status:** Phase 5 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine, independent risk engine). No paper/live trading or execution exists yet — nothing here places an order. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, Strategy Engine, and Risk & Security pages are real live data. No guaranteed returns are claimed anywhere in this project.
+**Status:** Phase 6 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine, independent risk engine, paper trading). No live trading/execution exists yet — no real money or exchange account is ever involved anywhere in this project. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, Strategy Engine, Risk & Security, and Paper Trading pages are real (paper trading uses a simulated account, but real live market prices/fees). No guaranteed returns are claimed anywhere in this project.
 
 ## Local development
 
@@ -20,9 +20,10 @@ Then open http://localhost:3010, register an account, and you'll land on the das
 
 - **Market Scanner** — live, polling-refreshed table of Binance USDT pairs.
 - **Coin Analysis** (click any scanner row) — real technical analysis (RSI, MACD, EMAs, ATR, VWAP, ADX, market structure, regime).
-- **AI Decisions** — the Opportunity Ranker's output across the watchlist: recommended strategy, confidence, entry/stop/target, risk:reward, a total score, and each actionable proposal's real APPROVED/REJECTED verdict from the independent Risk Engine. NO_TRADE is shown as a valid outcome, not hidden.
+- **AI Decisions** — the Opportunity Ranker's output across the watchlist: recommended strategy, confidence, entry/stop/target, risk:reward, a total score, each actionable proposal's real APPROVED/REJECTED verdict from the independent Risk Engine, and an "Execute (Paper)" button when approved. NO_TRADE is shown as a valid outcome, not hidden.
 - **Strategy Engine** — the four registered strategies (Trend Following, Breakout, Momentum, Mean Reversion) with per-user enable/disable.
 - **Risk & Security** — editable deterministic risk config (risk per trade, max daily loss, max open positions, max losing streak, max portfolio exposure, minimum confidence/risk:reward, max position size).
+- **Paper Trading** — a simulated $10,000 account. Positions fill at live Binance prices with realistic fees, auto-close on stop-loss/take-profit, and can be closed manually — but no real money or exchange account is ever touched.
 
 Copy `.env.example` to `.env` and fill in real secrets before running anything — `.env` is gitignored.
 
@@ -39,12 +40,12 @@ pnpm --filter @alphatrade/web test:e2e             # e2e tests — needs every `
 ## Monorepo layout
 
 - `apps/web` — Next.js dashboard
-- `apps/api` — Fastify REST API (auth, bot status, market data + analysis + decisions/strategies/risk proxy)
+- `apps/api` — Fastify REST API (auth, bot status, market data + analysis + decisions/strategies/risk/paper-trading proxy)
 - `apps/extension` — Chrome extension (Phase 10)
 - `services/market-data` — Binance public WebSocket/REST ingestion, in-memory market state, scanner/symbol HTTP API
 - `services/analysis-engine` — technical indicators, market structure, and regime classification computed from market-data's candles
 - `services/trading-engine` — strategy selection (packages/strategy-engine) + opportunity ranking + TradeProposal generation; stateless, never executes anything
 - `services/risk-engine` — the independent risk gate (packages/risk-engine); stateless HTTP wrapper, architecturally isolated from the strategy/AI layer
 - `services/*` (remaining) — trading pipeline workers, added phase by phase
-- `packages/*` — shared code (database schema, types, config, UI, exchange client, indicators, strategy engine, risk engine)
+- `packages/*` — shared code (database schema, types, config, UI, exchange client, indicators, strategy engine, risk engine, trade executor)
 - `stitch_alphatrade_ai_trading_platform/` — source design mockups the web UI is built from

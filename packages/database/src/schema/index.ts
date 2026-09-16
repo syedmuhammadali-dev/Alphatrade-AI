@@ -5,3 +5,6 @@ export * from "./bot-configs";
 export * from "./strategy-configs";
 export * from "./trade-decisions";
 export * from "./risk-checks";
+export * from "./paper-accounts";
+export * from "./paper-positions";
+export * from "./paper-orders";

@@ -15,7 +15,8 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/dashboard/bot", icon: "memory", label: "Autonomous Bot", trailing: "Phase 8", disabled: true },
   { href: "/dashboard/scanner", icon: "radar", label: "Market Scanner" },
   { href: "/dashboard/decisions", icon: "psychology", label: "AI Decisions" },
-  { href: "/dashboard/trades", icon: "candlestick_chart", label: "Active Trades", trailing: "Phase 9", disabled: true },
+  { href: "/dashboard/paper-trading", icon: "candlestick_chart", label: "Paper Trading" },
+  { href: "/dashboard/trades", icon: "receipt_long", label: "Live Trades", trailing: "Phase 9", disabled: true },
   { href: "/dashboard/strategies", icon: "tune", label: "Strategy Engine" },
   { href: "/dashboard/backtesting", icon: "history_toggle_off", label: "Backtesting", trailing: "Phase 7", disabled: true },
   { href: "/dashboard/risk", icon: "shield", label: "Risk & Security" },
@@ -70,10 +71,10 @@ export function Sidebar() {
       <div className="p-space-sm border-t border-outline-variant/30 flex flex-col gap-space-xs bg-surface-container-lowest">
         <div className="flex items-center justify-between font-label-numeric-sm text-label-numeric-sm text-outline">
           <span className="uppercase font-label-caps text-label-caps">PHASE</span>
-          <span>5 / 11</span>
+          <span>6 / 11</span>
         </div>
         <div className="w-full bg-surface-container h-1 rounded-full overflow-hidden">
-          <div className="bg-primary h-full" style={{ width: "45%" }} />
+          <div className="bg-primary h-full" style={{ width: "55%" }} />
         </div>
       </div>
     </aside>

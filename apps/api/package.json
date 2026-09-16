@@ -17,6 +17,7 @@
     "@alphatrade/shared-config": "workspace:*",
     "@alphatrade/shared-types": "workspace:*",
     "@alphatrade/strategy-engine": "workspace:*",
+    "@alphatrade/trade-executor": "workspace:*",
     "@fastify/cookie": "^11.0.0",
     "@fastify/cors": "^10.0.0",
     "@fastify/rate-limit": "^10.1.0",

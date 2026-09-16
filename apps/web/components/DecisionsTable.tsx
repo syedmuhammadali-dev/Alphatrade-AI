@@ -21,6 +21,8 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
   const [data, setData] = useState<OpportunitiesResponse>(initial);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [executing, setExecuting] = useState<string | null>(null);
+  const [executeResult, setExecuteResult] = useState<{ symbol: string; message: string } | null>(null);
 
   async function poll() {
     setLoading(true);
@@ -42,6 +44,24 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
     return () => clearInterval(interval);
   }, []);
 
+  async function handleExecute(symbol: string) {
+    setExecuting(symbol);
+    setExecuteResult(null);
+    try {
+      const res = await fetch("/api/paper/execute", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ symbol }),
+      });
+      const body = await res.json();
+      setExecuteResult({ symbol, message: body.executed ? `Paper position opened on ${symbol}.` : body.reason });
+    } catch {
+      setExecuteResult({ symbol, message: "Could not reach the paper trading service." });
+    } finally {
+      setExecuting(null);
+    }
+  }
+
   const actionable = data.opportunities.filter((o) => o.action !== "NO_TRADE");
 
   return (
@@ -56,7 +76,8 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
           <p className="font-body-sm text-body-sm text-outline mt-0.5">
             Ranked by the Opportunity Ranker across trend strength, structure, volume, liquidity, and strategy
             confidence. Each actionable proposal is separately evaluated by the Independent Risk Engine — see the
-            Risk column. NO_TRADE is a valid outcome. Nothing here executes automatically yet (Phase 6+).
+            Risk column. NO_TRADE is a valid outcome. &ldquo;Execute (Paper)&rdquo; places a simulated trade
+            only — no real money or exchange account is ever involved.
           </p>
         </div>
         <div className="flex items-center gap-space-sm">
@@ -69,6 +90,11 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
 
       {error && (
         <div className="px-space-base py-space-xs bg-tertiary/10 text-tertiary font-body-sm text-body-sm">{error}</div>
+      )}
+      {executeResult && (
+        <div className="px-space-base py-space-xs bg-primary/10 text-primary font-body-sm text-body-sm">
+          {executeResult.symbol}: {executeResult.message}
+        </div>
       )}
 
       <div className="overflow-x-auto">
@@ -84,6 +110,7 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
               <th className="py-2.5 px-space-sm font-semibold text-right">R:R</th>
               <th className="py-2.5 px-space-sm font-semibold text-right">Score</th>
               <th className="py-2.5 px-space-sm font-semibold">Risk</th>
+              <th className="py-2.5 px-space-sm font-semibold text-center">Paper</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-outline-variant/10">
@@ -124,6 +151,19 @@ export function DecisionsTable({ initial }: { initial: OpportunitiesResponse }) 
                         {opp.riskCheck.decision}
                       </Badge>
                     </span>
+                  ) : (
+                    <span className="font-label-numeric-sm text-label-numeric-sm text-outline">—</span>
+                  )}
+                </td>
+                <td className="py-space-sm px-space-sm text-center">
+                  {opp.riskCheck?.decision === "APPROVED" ? (
+                    <button
+                      onClick={() => handleExecute(opp.symbol)}
+                      disabled={executing === opp.symbol}
+                      className="px-2 py-1 bg-secondary/15 hover:bg-secondary/25 text-secondary rounded font-label-caps text-label-caps uppercase transition-colors disabled:opacity-50"
+                    >
+                      {executing === opp.symbol ? "…" : "Execute"}
+                    </button>
                   ) : (
                     <span className="font-label-numeric-sm text-label-numeric-sm text-outline">—</span>
                   )}
