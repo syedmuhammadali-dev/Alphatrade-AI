@@ -12,6 +12,7 @@ import strategiesRoutes from "./routes/strategies";
 import decisionsRoutes from "./routes/decisions";
 import riskRoutes from "./routes/risk";
 import paperRoutes from "./routes/paper";
+import backtestsRoutes from "./routes/backtests";
 
 export async function buildApp() {
   const env = loadEnv();
@@ -41,6 +42,7 @@ export async function buildApp() {
   await app.register(decisionsRoutes);
   await app.register(riskRoutes);
   await app.register(paperRoutes);
+  await app.register(backtestsRoutes);
 
   app.get("/health", async () => ({ ok: true }));
 

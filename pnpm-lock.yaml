@@ -155,6 +155,37 @@ importers:
         specifier: ^5.6.0
         version: 5.9.3
 
+  packages/backtesting-engine:
+    dependencies:
+      '@alphatrade/market-analysis':
+        specifier: workspace:*
+        version: link:../market-analysis
+      '@alphatrade/risk-engine':
+        specifier: workspace:*
+        version: link:../risk-engine
+      '@alphatrade/shared-types':
+        specifier: workspace:*
+        version: link:../shared-types
+      '@alphatrade/strategy-engine':
+        specifier: workspace:*
+        version: link:../strategy-engine
+      '@alphatrade/trade-executor':
+        specifier: workspace:*
+        version: link:../trade-executor
+    devDependencies:
+      '@types/node':
+        specifier: ^22.9.0
+        version: 22.20.1
+      rimraf:
+        specifier: ^6.0.0
+        version: 6.1.3
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9(@types/node@22.20.1)
+
   packages/database:
     dependencies:
       '@alphatrade/shared-config':
@@ -210,6 +241,25 @@ importers:
 
   packages/indicators:
     dependencies:
+      '@alphatrade/shared-types':
+        specifier: workspace:*
+        version: link:../shared-types
+    devDependencies:
+      rimraf:
+        specifier: ^6.0.0
+        version: 6.1.3
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9(@types/node@22.20.1)
+
+  packages/market-analysis:
+    dependencies:
+      '@alphatrade/indicators':
+        specifier: workspace:*
+        version: link:../indicators
       '@alphatrade/shared-types':
         specifier: workspace:*
         version: link:../shared-types
@@ -334,6 +384,9 @@ importers:
       '@alphatrade/indicators':
         specifier: workspace:*
         version: link:../../packages/indicators
+      '@alphatrade/market-analysis':
+        specifier: workspace:*
+        version: link:../../packages/market-analysis
       '@alphatrade/shared-config':
         specifier: workspace:*
         version: link:../../packages/shared-config
@@ -346,6 +399,49 @@ importers:
       fastify:
         specifier: ^5.1.0
         version: 5.12.3
+    devDependencies:
+      '@types/node':
+        specifier: ^22.9.0
+        version: 22.20.1
+      dotenv-cli:
+        specifier: ^7.4.2
+        version: 7.4.4
+      rimraf:
+        specifier: ^6.0.0
+        version: 6.1.3
+      tsx:
+        specifier: ^4.19.0
+        version: 4.23.13
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9(@types/node@22.20.1)
+
+  services/backtesting-engine:
+    dependencies:
+      '@alphatrade/backtesting-engine':
+        specifier: workspace:*
+        version: link:../../packages/backtesting-engine
+      '@alphatrade/exchange-client':
+        specifier: workspace:*
+        version: link:../../packages/exchange-client
+      '@alphatrade/shared-config':
+        specifier: workspace:*
+        version: link:../../packages/shared-config
+      '@alphatrade/shared-types':
+        specifier: workspace:*
+        version: link:../../packages/shared-types
+      '@fastify/cors':
+        specifier: ^10.0.0
+        version: 10.1.0
+      fastify:
+        specifier: ^5.1.0
+        version: 5.12.3
+      zod:
+        specifier: ^3.23.0
+        version: 3.25.76
     devDependencies:
       '@types/node':
         specifier: ^22.9.0

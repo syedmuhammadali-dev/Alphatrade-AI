@@ -1,5 +1,5 @@
 {
-  "name": "@alphatrade/analysis-engine",
+  "name": "@alphatrade/backtesting-engine-service",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -13,12 +13,13 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@alphatrade/indicators": "workspace:*",
-    "@alphatrade/market-analysis": "workspace:*",
+    "@alphatrade/backtesting-engine": "workspace:*",
+    "@alphatrade/exchange-client": "workspace:*",
     "@alphatrade/shared-config": "workspace:*",
     "@alphatrade/shared-types": "workspace:*",
     "fastify": "^5.1.0",
-    "@fastify/cors": "^10.0.0"
+    "@fastify/cors": "^10.0.0",
+    "zod": "^3.23.0"
   },
   "devDependencies": {
     "typescript": "^5.6.0",

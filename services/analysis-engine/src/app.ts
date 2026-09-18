@@ -2,9 +2,7 @@ import Fastify, { type FastifyError } from "fastify";
 import cors from "@fastify/cors";
 import { createLogger } from "@alphatrade/shared-config";
 import type { SymbolAnalysisResponse } from "@alphatrade/shared-types";
-import { analyze } from "./analyze";
-import { detectStructure } from "./structure";
-import { DeterministicRegimeDetector } from "./regime";
+import { analyze, detectStructure, DeterministicRegimeDetector } from "@alphatrade/market-analysis";
 import { fetchCandles, MarketDataUnavailableError } from "./market-data-client";
 
 const MIN_CANDLES_FOR_ANALYSIS = 30;

@@ -1,0 +1,30 @@
+{
+  "name": "@alphatrade/backtesting-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@alphatrade/market-analysis": "workspace:*",
+    "@alphatrade/risk-engine": "workspace:*",
+    "@alphatrade/shared-types": "workspace:*",
+    "@alphatrade/strategy-engine": "workspace:*",
+    "@alphatrade/trade-executor": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0",
+    "rimraf": "^6.0.0",
+    "@types/node": "^22.9.0"
+  }
+}

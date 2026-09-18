@@ -53,6 +53,13 @@ const envSchema = z.object({
 
   // apps/api -> services/risk-engine
   RISK_ENGINE_URL: z.string().default("http://localhost:4400"),
+
+  // services/backtesting-engine
+  BACKTESTING_ENGINE_PORT: z.coerce.number().int().positive().default(4500),
+  BACKTESTING_ENGINE_HOST: z.string().default("0.0.0.0"),
+
+  // apps/api -> services/backtesting-engine
+  BACKTESTING_ENGINE_URL: z.string().default("http://localhost:4500"),
 });
 
 export type Env = z.infer<typeof envSchema>;
