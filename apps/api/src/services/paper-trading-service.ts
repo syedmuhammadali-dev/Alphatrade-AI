@@ -79,7 +79,7 @@ export async function startAccount(userId: string, startingBalanceUsd = DEFAULT_
 }
 
 /** Checks every open position against its current price and auto-closes any that hit stop-loss/take-profit. */
-async function monitorAndAutoClose(userId: string): Promise<void> {
+export async function monitorAndAutoClose(userId: string): Promise<void> {
   const db = getDb();
   const open = await db.query.paperPositions.findMany({
     where: and(eq(paperPositions.userId, userId), eq(paperPositions.status, "OPEN")),

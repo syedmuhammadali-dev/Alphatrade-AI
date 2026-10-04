@@ -18,6 +18,9 @@ const envSchema = z.object({
 
   NEXT_PUBLIC_API_URL: z.string().optional(),
 
+  // apps/api bot orchestrator: how often running bots evaluate the watchlist
+  BOT_TICK_INTERVAL_MS: z.coerce.number().int().min(1000).default(60_000),
+
   ENCRYPTION_KEY: z.string().optional(),
 
   // services/market-data
