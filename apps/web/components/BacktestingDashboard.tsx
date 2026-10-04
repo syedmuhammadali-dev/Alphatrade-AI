@@ -143,8 +143,9 @@ export function BacktestingDashboard() {
           </div>
 
           <div className="flex flex-col gap-space-2xs">
-            <label className="font-label-caps text-label-caps uppercase text-outline tracking-wider">Start Date</label>
+            <label htmlFor="bt-start" className="font-label-caps text-label-caps uppercase text-outline tracking-wider">Start Date</label>
             <input
+              id="bt-start"
               type="date"
               value={start}
               onChange={(e) => setStart(e.target.value)}
@@ -153,8 +154,9 @@ export function BacktestingDashboard() {
           </div>
 
           <div className="flex flex-col gap-space-2xs">
-            <label className="font-label-caps text-label-caps uppercase text-outline tracking-wider">End Date</label>
+            <label htmlFor="bt-end" className="font-label-caps text-label-caps uppercase text-outline tracking-wider">End Date</label>
             <input
+              id="bt-end"
               type="date"
               value={end}
               onChange={(e) => setEnd(e.target.value)}

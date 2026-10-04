@@ -2,7 +2,7 @@
 
 Autonomous crypto trading platform — modular monorepo. See [remaining-tasks.md](./remaining-tasks.md) for the live backlog and phase plan.
 
-**Status:** Phase 6 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine, independent risk engine, paper trading). No live trading/execution exists yet — no real money or exchange account is ever involved anywhere in this project. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, Strategy Engine, Risk & Security, and Paper Trading pages are real (paper trading uses a simulated account, but real live market prices/fees). No guaranteed returns are claimed anywhere in this project.
+**Status:** Phase 7 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine, independent risk engine, paper trading, backtesting). No live trading/execution exists yet — no real money or exchange account is ever involved anywhere in this project. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, Strategy Engine, Risk & Security, Paper Trading, and Backtesting pages are real (paper trading uses a simulated account, but real live market prices/fees; backtests replay historical Binance candles through the same strategy and risk pipeline). No guaranteed returns are claimed anywhere in this project.
 
 ## Local development
 
