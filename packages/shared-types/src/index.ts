@@ -6,3 +6,5 @@ export * from "./strategy";
 export * from "./risk";
 export * from "./paper-trading";
 export * from "./backtest";
+export * from "./exchange-connection";
+export * from "./live-trading";

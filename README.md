@@ -2,7 +2,7 @@
 
 Autonomous crypto trading platform — modular monorepo. See [remaining-tasks.md](./remaining-tasks.md) for the live backlog and phase plan.
 
-**Status:** Phase 8 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine, independent risk engine, paper trading, backtesting, autonomous bot with start/pause/resume/stop/emergency-stop controls). No live trading/execution exists yet — no real money or exchange account is ever involved anywhere in this project. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, Strategy Engine, Risk & Security, Paper Trading, and Backtesting, and Autonomous Bot pages are real (paper trading uses a simulated account, but real live market prices/fees; backtests replay historical Binance candles through the same strategy and risk pipeline). No guaranteed returns are claimed anywhere in this project.
+**Status:** Phase 9 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine, independent risk engine, paper trading, backtesting, autonomous bot with start/pause/resume/stop/emergency-stop controls, live execution against a real connected exchange account). Live execution exists now but is strictly manual and opt-in — the autonomous bot never trades real money on its own, and every connection defaults to Binance testnet. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, Strategy Engine, Risk & Security, Paper Trading, Backtesting, Autonomous Bot, Exchange Connections, and Live Trading pages are real (paper trading uses a simulated account, but real live market prices/fees; backtests replay historical Binance candles through the same strategy and risk pipeline). No guaranteed returns are claimed anywhere in this project.
 
 ## Local development
 
@@ -13,7 +13,7 @@ pnpm install
 docker compose up -d                              # starts local Postgres (skip if you're using an existing Postgres instance)
 pnpm --filter @alphatrade/database db:generate    # generate SQL migrations from schema (first run)
 pnpm --filter @alphatrade/database db:migrate     # apply migrations
-pnpm dev                                          # runs apps/api (4000) + apps/web (3010) + market-data (4100) + analysis-engine (4200) + trading-engine (4300) + risk-engine (4400)
+pnpm dev                                          # runs every service + apps/web — see CLAUDE.md for the full port map
 ```
 
 Then open http://localhost:3010, register an account, and you'll land on the dashboard.
@@ -24,8 +24,12 @@ Then open http://localhost:3010, register an account, and you'll land on the das
 - **Strategy Engine** — the four registered strategies (Trend Following, Breakout, Momentum, Mean Reversion) with per-user enable/disable.
 - **Risk & Security** — editable deterministic risk config (risk per trade, max daily loss, max open positions, max losing streak, max portfolio exposure, minimum confidence/risk:reward, max position size).
 - **Paper Trading** — a simulated $10,000 account. Positions fill at live Binance prices with realistic fees, auto-close on stop-loss/take-profit, and can be closed manually — but no real money or exchange account is ever touched.
+- **Backtesting** — replays historical Binance candles (15m/1h/4h/1d) through the same strategy + risk pipeline, with metrics (return, win rate, profit factor, Sharpe, max drawdown, avg R:R).
+- **Autonomous Bot** — start/pause/resume/stop/emergency-stop. Protective stop-loss/take-profit exits run continuously for every open position regardless of state; new (paper) entries only happen while `running`.
+- **Exchange Connections** — add a real Binance API key/secret (encrypted at rest, AES-256-GCM); defaults to testnet. Read + trade permissions only — this project never requests or uses withdrawal access.
+- **Live Trading** — places a real market order through a connected exchange account, after the exact same AI Decision + independent Risk Engine check paper trading uses. Always a manual, one-click action — the autonomous bot never trades live on its own.
 
-Copy `.env.example` to `.env` and fill in real secrets before running anything — `.env` is gitignored.
+Copy `.env.example` to `.env` and fill in real secrets before running anything — `.env` is gitignored. Generate `ENCRYPTION_KEY` with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` before adding any exchange connection.
 
 ## Tests
 

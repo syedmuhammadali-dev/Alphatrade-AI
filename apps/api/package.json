@@ -9,11 +9,12 @@
     "start": "dotenv -e ../../.env -- node dist/server.js",
     "lint": "eslint src",
     "typecheck": "tsc --noEmit",
-    "test": "dotenv -e ../../.env -- vitest run",
+    "test": "dotenv -e ../../.env -- vitest run --no-file-parallelism",
     "clean": "rimraf dist"
   },
   "dependencies": {
     "@alphatrade/database": "workspace:*",
+    "@alphatrade/exchange-client": "workspace:*",
     "@alphatrade/shared-config": "workspace:*",
     "@alphatrade/shared-types": "workspace:*",
     "@alphatrade/strategy-engine": "workspace:*",

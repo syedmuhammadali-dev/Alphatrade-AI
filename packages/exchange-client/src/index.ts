@@ -2,3 +2,4 @@ export * from "./binance/types";
 export * from "./binance/normalize";
 export * from "./binance/public-streams";
 export * from "./binance/rest";
+export * from "./binance/signed-rest";

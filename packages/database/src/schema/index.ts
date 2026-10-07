@@ -9,3 +9,5 @@ export * from "./paper-accounts";
 export * from "./paper-positions";
 export * from "./paper-orders";
 export * from "./backtests";
+export * from "./exchange-connections";
+export * from "./live-positions";

@@ -63,6 +63,13 @@ const envSchema = z.object({
 
   // apps/api -> services/backtesting-engine
   BACKTESTING_ENGINE_URL: z.string().default("http://localhost:4500"),
+
+  // services/execution-engine (Phase 9 — live execution against a real exchange connection)
+  EXECUTION_ENGINE_PORT: z.coerce.number().int().positive().default(4600),
+  EXECUTION_ENGINE_HOST: z.string().default("0.0.0.0"),
+
+  // apps/api -> services/execution-engine
+  EXECUTION_ENGINE_URL: z.string().default("http://localhost:4600"),
 });
 
 export type Env = z.infer<typeof envSchema>;

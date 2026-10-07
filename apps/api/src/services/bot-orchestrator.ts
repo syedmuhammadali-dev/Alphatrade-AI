@@ -1,17 +1,23 @@
 import { eq } from "drizzle-orm";
-import { getDb, botConfigs } from "@alphatrade/database";
+import { getDb, botConfigs, livePositions } from "@alphatrade/database";
 import { createLogger, loadEnv } from "@alphatrade/shared-config";
 import { executePaperTrade, monitorAndAutoClose } from "./paper-trading-service";
+import { monitorAndAutoCloseLive } from "./live-trading-service";
 
 const logger = createLogger("bot-orchestrator");
 
 /**
- * One orchestration pass. Two rules, deliberately separate:
+ * One orchestration pass. Three rules, deliberately separate:
  * 1. Protective SL/TP exits run for every paper account with open positions,
  *    whatever the bot's state — a paused, stopped, or emergency-stopped bot
  *    must not leave positions unmanaged.
- * 2. New entries (the full decision -> risk -> execute pipeline) run only for
- *    bots in the `running` state. Pause/stop/emergency-stop all block entries.
+ * 2. The same protective exits run for every real exchange connection with
+ *    an open LIVE position, for the same reason.
+ * 3. New entries (the full decision -> risk -> execute pipeline) run only
+ *    for bots in the `running` state, and ONLY against paper trading. The
+ *    autonomous bot never opens a real-money position on its own — live
+ *    trades are deliberately manual-only (POST /live/execute), a safety
+ *    choice, not a gap to close later.
  */
 export async function runBotTick(symbols: string[]): Promise<void> {
   const db = getDb();
@@ -22,6 +28,19 @@ export async function runBotTick(symbols: string[]): Promise<void> {
       await monitorAndAutoClose(userId);
     } catch (err) {
       logger.warn({ err, userId }, "Position monitoring failed for account");
+    }
+  }
+
+  const liveUserIds = new Set(
+    (await db.query.livePositions.findMany({ where: eq(livePositions.status, "OPEN"), columns: { userId: true } })).map(
+      (p) => p.userId,
+    ),
+  );
+  for (const userId of liveUserIds) {
+    try {
+      await monitorAndAutoCloseLive(userId);
+    } catch (err) {
+      logger.warn({ err, userId }, "Live position monitoring failed for account");
     }
   }
 

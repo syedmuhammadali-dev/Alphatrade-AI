@@ -13,6 +13,8 @@ import decisionsRoutes from "./routes/decisions";
 import riskRoutes from "./routes/risk";
 import paperRoutes from "./routes/paper";
 import backtestsRoutes from "./routes/backtests";
+import exchangeConnectionsRoutes from "./routes/exchange-connections";
+import liveRoutes from "./routes/live";
 
 export async function buildApp() {
   const env = loadEnv();
@@ -43,6 +45,8 @@ export async function buildApp() {
   await app.register(riskRoutes);
   await app.register(paperRoutes);
   await app.register(backtestsRoutes);
+  await app.register(exchangeConnectionsRoutes);
+  await app.register(liveRoutes);
 
   app.get("/health", async () => ({ ok: true }));
 
