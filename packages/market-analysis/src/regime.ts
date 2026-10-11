@@ -5,9 +5,15 @@ export interface RegimeInput {
   candles: Candle[];
 }
 
-/** Swappable so a later phase can plug in an ML-based detector behind the same contract. */
+/**
+ * Swappable so a later phase can plug in an ML-based detector behind the
+ * same contract (Phase 11: services/analysis-engine's MlRegimeDetector,
+ * calling out to services/ml-service — that HTTP dependency is why detect()
+ * is async even though the deterministic implementation below never
+ * actually awaits anything).
+ */
 export interface RegimeDetector {
-  detect(input: RegimeInput): MarketRegime;
+  detect(input: RegimeInput): Promise<MarketRegime>;
 }
 
 const ADX_TRENDING_THRESHOLD = 25;
@@ -23,7 +29,8 @@ const VOLATILITY_LOOKBACK = 50;
  * - Otherwise (ADX in the 20-25 gray zone, or not enough data yet) => UNCERTAIN.
  */
 export class DeterministicRegimeDetector implements RegimeDetector {
-  detect({ candles }: RegimeInput): MarketRegime {
+  // eslint-disable-next-line @typescript-eslint/require-await
+  async detect({ candles }: RegimeInput): Promise<MarketRegime> {
     const closes = candles.map((c) => c.close);
     const adxValue = last(adx(candles, 14));
     const ema20Value = last(ema(closes, 20));

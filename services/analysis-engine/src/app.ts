@@ -2,15 +2,14 @@ import Fastify, { type FastifyError } from "fastify";
 import cors from "@fastify/cors";
 import { createLogger } from "@alphatrade/shared-config";
 import type { SymbolAnalysisResponse } from "@alphatrade/shared-types";
-import { analyze, detectStructure, DeterministicRegimeDetector } from "@alphatrade/market-analysis";
+import { analyze, detectStructure, DeterministicRegimeDetector, type RegimeDetector } from "@alphatrade/market-analysis";
 import { fetchCandles, MarketDataUnavailableError } from "./market-data-client";
 
 const MIN_CANDLES_FOR_ANALYSIS = 30;
 
-export async function buildApp(marketDataUrl: string) {
+export async function buildApp(marketDataUrl: string, regimeDetector: RegimeDetector = new DeterministicRegimeDetector()) {
   const logger = createLogger("analysis-engine");
   const app = Fastify({ loggerInstance: logger });
-  const regimeDetector = new DeterministicRegimeDetector();
 
   await app.register(cors, { origin: true });
 
@@ -37,7 +36,7 @@ export async function buildApp(marketDataUrl: string) {
     const response: SymbolAnalysisResponse = {
       analysis: analyze(symbol, "1m", candles),
       structure: detectStructure(candles),
-      regime: regimeDetector.detect({ candles }),
+      regime: await regimeDetector.detect({ candles }),
     };
     return reply.send(response);
   });

@@ -43,6 +43,14 @@ const envSchema = z.object({
   // apps/api -> services/analysis-engine
   ANALYSIS_ENGINE_URL: z.string().default("http://localhost:4200"),
 
+  // services/ml-service (Python, FastAPI) — Phase 11's swap-in point for the
+  // deterministic regime detector. Not part of the default dev stack; start
+  // it separately and flip REGIME_DETECTOR_MODE to use it.
+  ML_SERVICE_PORT: z.coerce.number().int().positive().default(8000),
+  ML_SERVICE_HOST: z.string().default("0.0.0.0"),
+  ML_SERVICE_URL: z.string().default("http://localhost:8000"),
+  REGIME_DETECTOR_MODE: z.enum(["deterministic", "ml"]).default("deterministic"),
+
   // services/trading-engine
   TRADING_ENGINE_PORT: z.coerce.number().int().positive().default(4300),
   TRADING_ENGINE_HOST: z.string().default("0.0.0.0"),

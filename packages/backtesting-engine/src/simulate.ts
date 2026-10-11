@@ -9,6 +9,10 @@ import type { BacktestSimConfig, OpenSimPosition } from "./types";
 import { computeMetrics } from "./metrics";
 
 const MIN_CANDLES_FOR_ANALYSIS = 30;
+// Always deterministic, never the ML swap-in: this is a pure package (no
+// network calls of its own volition, per CLAUDE.md), and an HTTP round
+// trip per bar would make backtests slow, flaky, and non-reproducible
+// anyway. detect() is still async per the shared RegimeDetector interface.
 const regimeDetector = new DeterministicRegimeDetector();
 
 function applyThresholds(signal: ReturnType<typeof selectBestSignal>, minConfidence: number, minRiskReward: number) {
@@ -83,7 +87,7 @@ function buildTrade(
  * (never the signal bar's own price) to avoid lookahead bias. LONG-only,
  * one position at a time — the same scope paper trading (Phase 6) chose.
  */
-export function runBacktest(candles: Candle[], config: BacktestSimConfig): BacktestResult {
+export async function runBacktest(candles: Candle[], config: BacktestSimConfig): Promise<BacktestResult> {
   const strategies = config.strategies ? STRATEGIES.filter((s) => config.strategies!.includes(s.name)) : STRATEGIES;
   const riskConfig = riskConfigSchema.parse({
     ...config.riskConfig,
@@ -122,7 +126,7 @@ export function runBacktest(candles: Candle[], config: BacktestSimConfig): Backt
     const windowCandles = candles.slice(0, i + 1);
     const analysis = analyze(config.symbol, config.interval, windowCandles);
     const structure = detectStructure(windowCandles);
-    const regime = regimeDetector.detect({ candles: windowCandles });
+    const regime = await regimeDetector.detect({ candles: windowCandles });
 
     const signals = runAllStrategies({ symbol: config.symbol, analysis, structure, regime }, strategies);
     const best = applyThresholds(selectBestSignal(signals), config.minConfidence, config.minRiskReward);

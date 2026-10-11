@@ -37,7 +37,7 @@ export async function buildApp(restBaseUrl: string) {
       return reply.code(422).send({ error: "No historical candles found for the requested symbol/date range." });
     }
 
-    const result = runBacktest(candles, {
+    const result = await runBacktest(candles, {
       symbol: req.symbol.toUpperCase(),
       interval: req.interval,
       strategies: req.strategies,

@@ -15,8 +15,8 @@ function uptrendCandles(count: number): Candle[] {
 }
 
 describe("runBacktest", () => {
-  it("does nothing over too few candles to compute any indicators", () => {
-    const result = runBacktest(uptrendCandles(10), {
+  it("does nothing over too few candles to compute any indicators", async () => {
+    const result = await runBacktest(uptrendCandles(10), {
       symbol: "BTCUSDT",
       interval: "1h",
       minConfidence: 60,
@@ -29,8 +29,8 @@ describe("runBacktest", () => {
     expect(result.metrics.totalReturnPercent).toBe(0);
   });
 
-  it("opens and profitably closes LONG trend-following trades over a strong sustained uptrend", () => {
-    const result = runBacktest(uptrendCandles(300), {
+  it("opens and profitably closes LONG trend-following trades over a strong sustained uptrend", async () => {
+    const result = await runBacktest(uptrendCandles(300), {
       symbol: "BTCUSDT",
       interval: "1h",
       strategies: ["TrendFollowingStrategy"],
@@ -53,8 +53,8 @@ describe("runBacktest", () => {
     expect(result.metrics.wins).toBeGreaterThan(0);
   });
 
-  it("never opens a second position while one is already open", () => {
-    const result = runBacktest(uptrendCandles(300), {
+  it("never opens a second position while one is already open", async () => {
+    const result = await runBacktest(uptrendCandles(300), {
       symbol: "BTCUSDT",
       interval: "1h",
       strategies: ["TrendFollowingStrategy"],
