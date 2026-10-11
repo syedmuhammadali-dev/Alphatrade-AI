@@ -2,7 +2,7 @@
 
 Autonomous crypto trading platform — modular monorepo. See [remaining-tasks.md](./remaining-tasks.md) for the live backlog and phase plan.
 
-**Status:** Phase 9 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine, independent risk engine, paper trading, backtesting, autonomous bot with start/pause/resume/stop/emergency-stop controls, live execution against a real connected exchange account). Live execution exists now but is strictly manual and opt-in — the autonomous bot never trades real money on its own, and every connection defaults to Binance testnet. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, Strategy Engine, Risk & Security, Paper Trading, Backtesting, Autonomous Bot, Exchange Connections, and Live Trading pages are real (paper trading uses a simulated account, but real live market prices/fees; backtests replay historical Binance candles through the same strategy and risk pipeline). No guaranteed returns are claimed anywhere in this project.
+**Status:** Phase 10 (monorepo, database, authentication, dashboard, live Binance market-data service, market scanner, technical analysis + market structure + regime detection, strategy engine + opportunity ranker + AI decision engine, independent risk engine, paper trading, backtesting, autonomous bot with start/pause/resume/stop/emergency-stop controls, live execution against a real connected exchange account, a Chrome extension popup). Live execution exists now but is strictly manual and opt-in — the autonomous bot never trades real money on its own, and every connection defaults to Binance testnet. The dashboard overview's KPI cards still show illustrative demo data; the Market Scanner, Coin Analysis, AI Decisions, Strategy Engine, Risk & Security, Paper Trading, Backtesting, Autonomous Bot, Exchange Connections, and Live Trading pages are real (paper trading uses a simulated account, but real live market prices/fees; backtests replay historical Binance candles through the same strategy and risk pipeline). No guaranteed returns are claimed anywhere in this project.
 
 ## Local development
 
@@ -28,6 +28,7 @@ Then open http://localhost:3010, register an account, and you'll land on the das
 - **Autonomous Bot** — start/pause/resume/stop/emergency-stop. Protective stop-loss/take-profit exits run continuously for every open position regardless of state; new (paper) entries only happen while `running`.
 - **Exchange Connections** — add a real Binance API key/secret (encrypted at rest, AES-256-GCM); defaults to testnet. Read + trade permissions only — this project never requests or uses withdrawal access.
 - **Live Trading** — places a real market order through a connected exchange account, after the exact same AI Decision + independent Risk Engine check paper trading uses. Always a manual, one-click action — the autonomous bot never trades live on its own.
+- **Chrome extension** (`apps/extension`) — a popup for bot status/controls (pause/resume/emergency-stop), paper portfolio, and the best current AI opportunity, without leaving the page you're on. Authenticates with its own Bearer-token session (`POST /auth/extension-login`), not the web app's cookies. An optional content script surfaces the symbol you're viewing on a Binance trade page. See "Chrome extension" below for loading it unpacked.
 
 Copy `.env.example` to `.env` and fill in real secrets before running anything — `.env` is gitignored. Generate `ENCRYPTION_KEY` with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` before adding any exchange connection.
 
@@ -41,11 +42,19 @@ pnpm --filter @alphatrade/web exec playwright install chromium   # once, to fetc
 pnpm --filter @alphatrade/web test:e2e             # e2e tests — needs every `pnpm dev` service running
 ```
 
+## Chrome extension
+
+```bash
+pnpm --filter @alphatrade/extension dev     # or: build, then load .output/chrome-mv3 unpacked
+```
+
+In Chrome: `chrome://extensions` → enable Developer mode → "Load unpacked" → select `apps/extension/.output/chrome-mv3` (after `pnpm --filter @alphatrade/extension build`) or let `pnpm --filter @alphatrade/extension dev` open a dev Chrome profile with it pre-loaded. Requires `pnpm dev`'s `apps/api` running at `http://localhost:4000` (hardcoded in `apps/extension/lib/api.ts` — change it for a non-local deployment).
+
 ## Monorepo layout
 
 - `apps/web` — Next.js dashboard
 - `apps/api` — Fastify REST API (auth, bot status, market data + analysis + decisions/strategies/risk/paper-trading proxy)
-- `apps/extension` — Chrome extension (Phase 10)
+- `apps/extension` — Chrome extension (Manifest V3, WXT + React): bot controls, paper portfolio, best AI opportunity, optional Binance symbol detection
 - `services/market-data` — Binance public WebSocket/REST ingestion, in-memory market state, scanner/symbol HTTP API
 - `services/analysis-engine` — technical indicators, market structure, and regime classification computed from market-data's candles
 - `services/trading-engine` — strategy selection (packages/strategy-engine) + opportunity ranking + TradeProposal generation; stateless, never executes anything

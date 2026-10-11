@@ -10,6 +10,7 @@ Guidance for Claude Code (or any agent) working in this repo. See [README.md](./
 - `apps/web` — Next.js App Router. Route handlers under `app/api/**` are a thin BFF proxy (`lib/api-proxy.ts`'s `proxyToApi()`) to `apps/api` — they relay cookies, nothing else. All real logic lives server-side in `apps/api`.
 - **The AI/strategy layer never executes anything.** `trading-engine` produces a `TradeProposal` or `NO_TRADE` and stops. Every proposal is routed through `risk-engine` (isolated — it only ever sees a plain `TradeProposal` + `RiskConfig` + `AccountState`, never strategy internals) before anything executes. This separation is the whole point of the project; don't take shortcuts that blur it.
 - `TradeExecutor`-shaped code (paper trading, live trading) deliberately lives in `apps/api/src/services/*-trading-service.ts`, not as a literal class in `packages/trade-executor` — it needs Postgres + network side effects, which packages can't have. `packages/trade-executor` holds only the pure fee/P&L math both paper and live trading share.
+- `apps/extension` — a Chrome extension (Manifest V3, WXT + React). It talks to `apps/api` over plain REST like the web app, but authenticates with a Bearer token (`POST /auth/extension-login`, stored in `chrome.storage.local`) instead of cookies, since a `chrome-extension://` origin can't rely on cookies apps/api sets. It never touches Postgres or an exchange directly.
 
 ## Port map (local dev)
 
@@ -34,6 +35,7 @@ Guidance for Claude Code (or any agent) working in this repo. See [README.md](./
 - **Secrets**: exchange API keys are encrypted at rest via `encryptSecret`/`decryptSecret` (`packages/shared-config/src/encryption.ts`, AES-256-GCM, keyed by `ENCRYPTION_KEY`). Never log a decrypted secret; never return one from an API route (`apiKeyLast4` is enough for a user to tell connections apart). New exchange connections default to **testnet**.
 - **Idempotency on real exchange calls**: every live order carries a `clientOrderId` so a safely-retried request can't double-fill. `services/execution-engine`'s retry wrapper only retries network-level failures, never a rejection the exchange actually returned.
 - **Autonomous bot never trades live on its own.** The bot orchestrator (`apps/api/src/services/bot-orchestrator.ts`) runs protective SL/TP exits for every open position (paper and live, in every bot state) but only opens *new* paper positions, and only for `running` bots. Opening a live position is always a manual, one-click action (`POST /live/execute`) — don't wire autonomous live entries without the user explicitly asking for that and understanding the implication.
+- **Known upstream pin**: `pnpm-workspace.yaml`'s `overrides` pins `@vitejs/plugin-react` to `4.3.4` — every `6.1.2` build on npm imports a `vite/internal` subpath no published `vite` 6.x actually exports, which breaks `wxt prepare`/`wxt build` outright. Check whether a newer release fixes this before removing the pin.
 
 ## Testing
 
