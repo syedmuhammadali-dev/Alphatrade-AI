@@ -4,4 +4,10 @@ packages:
   - "services/*"
 allowBuilds:
   esbuild: true
+  spawn-sync: true
   unrs-resolver: true
+overrides:
+  # @vitejs/plugin-react@6.1.2's published build imports a vite subpath
+  # ("vite/internal") that doesn't exist in any currently-published vite
+  # 6.x — pin to the last known-good version until upstream fixes it.
+  "@vitejs/plugin-react": "4.3.4"

@@ -16,6 +16,10 @@ out/
 # turborepo
 .turbo/
 
+# wxt (apps/extension)
+.wxt/
+.output/
+
 # testing
 coverage/
 test-results/
