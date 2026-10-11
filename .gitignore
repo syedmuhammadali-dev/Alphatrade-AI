@@ -20,6 +20,14 @@ out/
 .wxt/
 .output/
 
+# python (services/ml-service)
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+services/ml-service/models/*.joblib
+services/ml-service/models/*.json
+
 # testing
 coverage/
 test-results/
