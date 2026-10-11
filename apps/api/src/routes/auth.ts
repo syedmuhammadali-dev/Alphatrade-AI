@@ -61,6 +61,55 @@ export default async function authRoutes(app: FastifyInstance) {
     }
   });
 
+  /**
+   * Token-based login for the Chrome extension (Phase 10) — same
+   * credentials check as /auth/login, but returns the tokens in the body
+   * instead of setting httpOnly cookies, since the extension's
+   * chrome-extension:// origin can't rely on cookies set by apps/api.
+   * The extension stores these in chrome.storage.local itself.
+   */
+  app.post("/auth/extension-login", async (request, reply) => {
+    const parsed = loginRequestSchema.safeParse(request.body);
+    if (!parsed.success) {
+      return reply.code(400).send({ error: "Invalid request.", details: parsed.error.flatten() });
+    }
+    try {
+      const { user, tokens } = await loginUser(parsed.data.email, parsed.data.password, {
+        userAgent: request.headers["user-agent"],
+        ip: request.ip,
+      });
+      return reply.send({ user: toPublicUser(user), accessToken: tokens.accessToken, refreshToken: tokens.refreshToken });
+    } catch (err) {
+      if (err instanceof AuthError) {
+        return reply.code(err.statusCode).send({ error: err.message });
+      }
+      throw err;
+    }
+  });
+
+  app.post<{ Body: { refreshToken?: string } }>("/auth/extension-refresh", async (request, reply) => {
+    const refreshToken = request.body?.refreshToken;
+    if (!refreshToken) {
+      return reply.code(401).send({ error: "No refresh token provided." });
+    }
+    try {
+      const { user, tokens } = await rotateRefreshToken(refreshToken);
+      return reply.send({ user: toPublicUser(user), accessToken: tokens.accessToken, refreshToken: tokens.refreshToken });
+    } catch (err) {
+      if (err instanceof AuthError) {
+        return reply.code(err.statusCode).send({ error: err.message });
+      }
+      throw err;
+    }
+  });
+
+  app.post<{ Body: { refreshToken?: string } }>("/auth/extension-logout", async (request, reply) => {
+    if (request.body?.refreshToken) {
+      await logoutUser(request.body.refreshToken, request.userId);
+    }
+    return reply.send({ ok: true });
+  });
+
   app.post("/auth/refresh", async (request, reply) => {
     const refreshToken = request.cookies.refresh_token;
     if (!refreshToken) {

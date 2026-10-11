@@ -26,8 +26,16 @@ export async function buildApp() {
   });
 
   await app.register(sensible);
+  const allowedWebOrigins = env.CORS_ORIGIN.split(",").map((o) => o.trim());
   await app.register(cors, {
-    origin: env.CORS_ORIGIN.split(",").map((o) => o.trim()),
+    // The Chrome extension (Phase 10) calls this API from a chrome-extension://
+    // origin, which varies per install/dev-load and can't be enumerated in
+    // CORS_ORIGIN ahead of time — it authenticates with a Bearer token, not
+    // cookies, so allowing the origin here doesn't grant it any cookie access.
+    origin: (origin, callback) => {
+      const allowed = !origin || allowedWebOrigins.includes(origin) || origin.startsWith("chrome-extension://");
+      callback(null, allowed);
+    },
     credentials: true,
   });
   await app.register(cookie);

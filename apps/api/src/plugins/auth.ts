@@ -22,7 +22,15 @@ export default fp(async function authPlugin(app: FastifyInstance) {
   app.decorate(
     "authenticate",
     async function authenticate(request: FastifyRequest, reply: FastifyReply) {
-      const token = request.cookies.access_token;
+      // The web app authenticates via the httpOnly access_token cookie. The
+      // Chrome extension (Phase 10) can't rely on that cross-origin, so it
+      // authenticates with a Bearer token instead — same JWT, same
+      // verification, just carried differently. Cookie takes precedence
+      // when both are somehow present.
+      const bearer = request.headers.authorization?.startsWith("Bearer ")
+        ? request.headers.authorization.slice("Bearer ".length)
+        : undefined;
+      const token = request.cookies.access_token ?? bearer;
       if (!token) {
         return reply.code(401).send({ error: "Not authenticated." });
       }
