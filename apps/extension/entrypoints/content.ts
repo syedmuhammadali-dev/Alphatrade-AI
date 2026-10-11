@@ -4,13 +4,7 @@
  * current tab's URL — never page content, account data, or anything else on
  * the page.
  */
-const SYMBOL_PATTERN = /\/trade\/([A-Za-z0-9]+)_([A-Za-z0-9]+)/;
-
-function extractSymbol(href: string): string | null {
-  const match = href.match(SYMBOL_PATTERN);
-  if (!match) return null;
-  return `${match[1]}${match[2]}`.toUpperCase();
-}
+import { extractSymbol } from "../lib/symbol";
 
 function reportCurrentSymbol() {
   const symbol = extractSymbol(location.href);
