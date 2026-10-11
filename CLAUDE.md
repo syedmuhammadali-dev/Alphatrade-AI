@@ -24,6 +24,7 @@ Guidance for Claude Code (or any agent) working in this repo. See [README.md](./
 | risk-engine | 4400 |
 | backtesting-engine | 4500 |
 | execution-engine | 4600 |
+| ml-service (Python, not in pnpm/turbo) | 8000 |
 
 ## Conventions established across phases
 
@@ -36,6 +37,7 @@ Guidance for Claude Code (or any agent) working in this repo. See [README.md](./
 - **Idempotency on real exchange calls**: every live order carries a `clientOrderId` so a safely-retried request can't double-fill. `services/execution-engine`'s retry wrapper only retries network-level failures, never a rejection the exchange actually returned.
 - **Autonomous bot never trades live on its own.** The bot orchestrator (`apps/api/src/services/bot-orchestrator.ts`) runs protective SL/TP exits for every open position (paper and live, in every bot state) but only opens *new* paper positions, and only for `running` bots. Opening a live position is always a manual, one-click action (`POST /live/execute`) — don't wire autonomous live entries without the user explicitly asking for that and understanding the implication.
 - **Known upstream pin**: `pnpm-workspace.yaml`'s `overrides` pins `@vitejs/plugin-react` to `4.3.4` — every `6.1.2` build on npm imports a `vite/internal` subpath no published `vite` 6.x actually exports, which breaks `wxt prepare`/`wxt build` outright. Check whether a newer release fixes this before removing the pin.
+- **`services/ml-service` is Python, not TypeScript** — a standalone FastAPI process outside the pnpm workspace entirely (its own `.venv`, `requirements.txt`, `pytest`). It's a swap-in for `packages/market-analysis`'s `RegimeDetector` interface, selected via `REGIME_DETECTOR_MODE=ml` in `services/analysis-engine` only — never wire it into `packages/backtesting-engine` (a pure package; see the architecture rule above) or any execution path. `RegimeDetector.detect()` is `Promise<MarketRegime>` specifically so an HTTP-backed detector like this can exist behind the same contract the deterministic one uses.
 
 ## Testing
 
